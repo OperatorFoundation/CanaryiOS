@@ -17,13 +17,15 @@ struct ContentView: View {
     let runButton = "Run Test"
     let logTitle = "Run Log"
     let runTimes = " Time(s)"
-    
-    
+    //Constants
+    let step = 1
+    let range = 1...10
+    //vars
     @State private var configLocation = "No Config Loaded"
     @State private var numberOfRuns = 1
     @State private var runLogs = [""]
-    let step = 1
-    let range = 1...10
+    
+    
     
     var body: some View {
         VStack(alignment: .center){
@@ -43,11 +45,13 @@ struct ContentView: View {
             }
         VStack(alignment: .center){
                 Text(runTimePrompt)
-            HStack(alignment: .center, spacing: 2){
+            ZStack(alignment: .center){
+                //Spacer(minLength:25)
                 Text(String(numberOfRuns)+runTimes)
                 Stepper(value: $numberOfRuns,
                                 in: range,
                                 step: step){}
+                Spacer(minLength:25)
             }
             Button(runButton)
             {
