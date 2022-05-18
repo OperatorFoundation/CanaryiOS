@@ -1,0 +1,6 @@
+module Pods_CanaryiOS {
+  umbrella header "Pods-CanaryiOS-umbrella.h"
+
+  export *
+  module * { export * }
+}

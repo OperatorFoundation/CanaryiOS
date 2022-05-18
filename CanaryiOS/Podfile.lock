@@ -1,0 +1,16 @@
+PODS:
+  - FileBrowser (1.0.0)
+
+DEPENDENCIES:
+  - FileBrowser (~> 1.0)
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - FileBrowser
+
+SPEC CHECKSUMS:
+  FileBrowser: 2ca91ff61c9ea09665eb3b8f9e64a7a77e66a0bf
+
+PODFILE CHECKSUM: 22a38d44a4b51ce62f6685de38652feffc255312
+
+COCOAPODS: 1.11.3

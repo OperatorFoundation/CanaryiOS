@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import FileBrowser
 
 struct ContentView: View {
     //Display Strings
@@ -14,37 +15,50 @@ struct ContentView: View {
     let browseButton = "Browse"
     let runTimePrompt = "How many times do you want to run the test?"
     let runButton = "Run Test"
-    let logTitle = "run log"
+    let logTitle = "Run Log"
+    let runTimes = " Time(s)"
     
-    @State private var configLocation = ""
+    
+    @State private var configLocation = "No Config Loaded"
     @State private var numberOfRuns = 1
+    @State private var runLogs = [""]
     let step = 1
     let range = 1...10
     
     var body: some View {
-            VStack{
-                Spacer()
+        VStack(alignment: .center){
                 Text(configTitle)
-                TextField(configLocation, text: $configLocation)
-                Button(browseButton)
-                {
-                    //Browse for file functionality
-                }
-                Spacer()
+            TextField("test", text: $configLocation){}
+                .multilineTextAlignment(.center)
+                .foregroundColor(Color.red)
+
+            Button(browseButton)
+            {
+                //fix me
+                //let fileBrowser = FileBrowser()
+                //present(fileBrowser, animated: true, completion: nil)
             }
-            VStack{
+            .buttonStyle(.borderedProminent)
+            Spacer()
+            }
+        VStack(alignment: .center){
                 Text(runTimePrompt)
+            HStack(alignment: .center, spacing: 2){
+                Text(String(numberOfRuns)+runTimes)
                 Stepper(value: $numberOfRuns,
                                 in: range,
-                                step: step) {}
-                Button(runButton)
-                {
-                    //Run functionality
-                }
-                Spacer()
+                                step: step){}
             }
-            VStack{
+            Button(runButton)
+            {
+                //Run functionality
+            }
+            .buttonStyle(.bordered)
+        }
+        VStack(alignment: .center){
                 Text(logTitle)
+                Text("")
+                Spacer()
             }
     }
 }
