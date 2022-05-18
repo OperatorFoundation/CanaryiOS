@@ -23,7 +23,7 @@ struct ContentView: View {
     //vars
     @State private var configLocation = "No Config Loaded"
     @State private var numberOfRuns = 1
-    @State private var runLogs = [""]
+    @State private var runLogs = ["demo","data","replace","with","actual","logs"] //fixme, demo data
     
     
     
@@ -62,6 +62,7 @@ struct ContentView: View {
         VStack(alignment: .center){
                 Text(logTitle)
                 Text("")
+
                 Spacer()
             }
     }
