@@ -1,0 +1,284 @@
+{
+  "pins" : [
+    {
+      "identity" : "adversarylabclientswift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/OperatorFoundation/AdversaryLabClientSwift",
+      "state" : {
+        "branch" : "main",
+        "revision" : "86705cd41d750ed4a115224602e8e14627708801"
+      }
+    },
+    {
+      "identity" : "bits",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/OperatorFoundation/Bits.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "bf60b26441a60f48651b1646e4c348b1b2d0b804"
+      }
+    },
+    {
+      "identity" : "canary",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/OperatorFoundation/Canary.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "0f8608209945bacc850d520748fa5907d768519f"
+      }
+    },
+    {
+      "identity" : "chord",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/OperatorFoundation/Chord.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "cfc0391d775a76535f9299ca6f6d1ce989b0ce27"
+      }
+    },
+    {
+      "identity" : "datable",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/OperatorFoundation/Datable.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "86118a922137267780fde547fc0b3cf8cd5a3134"
+      }
+    },
+    {
+      "identity" : "ghostwriter",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/OperatorFoundation/Ghostwriter",
+      "state" : {
+        "branch" : "main",
+        "revision" : "f78f9ffe74c9d0036eacbcda5650cbf9ca76e2b5"
+      }
+    },
+    {
+      "identity" : "internetprotocols",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/OperatorFoundation/InternetProtocols.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "6674a9bdfe215783197678bc8376f9ac73942299"
+      }
+    },
+    {
+      "identity" : "keychain",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/OperatorFoundation/Keychain.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "e34ab5b53b1d73201a64c6168b56391e5b120105"
+      }
+    },
+    {
+      "identity" : "keychainlinux",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/OperatorFoundation/KeychainLinux.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "289bdb0c7f16e9185c040370bb1b36d1dcbc1423"
+      }
+    },
+    {
+      "identity" : "keychainmacos",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/OperatorFoundation/KeychainMacOS.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "ee3b8047a7f728c233c9c80abae4a59e46a557df"
+      }
+    },
+    {
+      "identity" : "monolith",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/OperatorFoundation/Monolith.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "b71c3db745028f20388b39e09c2c04a3d556d8ed"
+      }
+    },
+    {
+      "identity" : "net",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/OperatorFoundation/Net.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "c43bf17e1e9a099b89b4ce56768df3c68fbc12e1"
+      }
+    },
+    {
+      "identity" : "packetcapturebpf",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/OperatorFoundation/PacketCaptureBPF.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "c08a1ef068ad386106af794ef3351f3b8b5bf76a"
+      }
+    },
+    {
+      "identity" : "packetstream",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/OperatorFoundation/PacketStream.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "2340145ec9c547f23aeb0464a3b230f6afaa529b"
+      }
+    },
+    {
+      "identity" : "replicantswift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/OperatorFoundation/ReplicantSwift.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "7e86302b5252e0cfa88aac10a2ba44eecaf23f03"
+      }
+    },
+    {
+      "identity" : "replicantswiftclient",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/OperatorFoundation/ReplicantSwiftClient.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "8517c549eff585b8f17d7f10f63db4ee1707b44f"
+      }
+    },
+    {
+      "identity" : "shadowswift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/OperatorFoundation/ShadowSwift.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "2686aa75a2c9141cb3b4b4a87c6b82c0fa4d7129"
+      }
+    },
+    {
+      "identity" : "song",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/OperatorFoundation/Song.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "cb5e5ce897bea90244e73929d21ac5497576595d"
+      }
+    },
+    {
+      "identity" : "swift-argument-parser",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/apple/swift-argument-parser.git",
+      "state" : {
+        "revision" : "f3c9084a71ef4376f2fabbdf1d3d90a49f1fabdb",
+        "version" : "1.1.2"
+      }
+    },
+    {
+      "identity" : "swift-ast",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/OperatorFoundation/swift-ast.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "d7e0cf0d9d3b90831a1c297ce911a338a4bd44f3"
+      }
+    },
+    {
+      "identity" : "swift-crypto",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/apple/swift-crypto",
+      "state" : {
+        "revision" : "d9825fa541df64b1a7b182178d61b9a82730d01f",
+        "version" : "2.1.0"
+      }
+    },
+    {
+      "identity" : "swift-log",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/apple/swift-log.git",
+      "state" : {
+        "revision" : "5d66f7ba25daf4f94100e7022febf3c75e37a6c7",
+        "version" : "1.4.2"
+      }
+    },
+    {
+      "identity" : "swift-netutils",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/OperatorFoundation/swift-netutils.git",
+      "state" : {
+        "revision" : "776909ce0b37bd9ea1fa0f2156e4e5ad07a592b8",
+        "version" : "4.3.0"
+      }
+    },
+    {
+      "identity" : "swifthextools",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/OperatorFoundation/SwiftHexTools",
+      "state" : {
+        "branch" : "main",
+        "revision" : "3d4b5a925414481ff82fe53b9062560a269c2679"
+      }
+    },
+    {
+      "identity" : "swiftqueue",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/OperatorFoundation/SwiftQueue.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "9f264b7f816b55b5b718f5187aa98c7397d28d81"
+      }
+    },
+    {
+      "identity" : "transmission",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/OperatorFoundation/Transmission.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "bbae4f2c3a5a8a2fad49c5279e5889da0148a2c7"
+      }
+    },
+    {
+      "identity" : "transmissionmacos",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/OperatorFoundation/TransmissionMacOS",
+      "state" : {
+        "branch" : "main",
+        "revision" : "9e2ce966c7bc08f1d82820c5053ac63c31f6580a"
+      }
+    },
+    {
+      "identity" : "transmissiontransport",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/OperatorFoundation/TransmissionTransport.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "318541767d15fd6905f8b2217392fa7ec7ae467c"
+      }
+    },
+    {
+      "identity" : "transmissiontypes",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/OperatorFoundation/TransmissionTypes.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "07e1762fff60bde2ec5cd4f8484bc1f26a4de4e0"
+      }
+    },
+    {
+      "identity" : "transport",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/OperatorFoundation/Transport.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "0cbd49e3668de97c9e45eb5e464274ee43de871e"
+      }
+    },
+    {
+      "identity" : "zipfoundation",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/weichsel/ZIPFoundation.git",
+      "state" : {
+        "revision" : "7254c74b49cec2cb81520523ba993c671f71b066",
+        "version" : "0.9.14"
+      }
+    }
+  ],
+  "version" : 2
+}

@@ -1,0 +1,315 @@
+Target dependency graph (71 targets)
+Crypto in swift-crypto, no dependencies
+Crypto in swift-crypto, depends on:
+Crypto in swift-crypto (explicit)
+KeychainLinux in KeychainLinux, depends on:
+Crypto in swift-crypto (explicit)
+KeychainLinux in KeychainLinux, depends on:
+KeychainLinux in KeychainLinux (explicit)
+Crypto in swift-crypto (explicit)
+Datable in Datable, no dependencies
+Datable in Datable, depends on:
+Datable in Datable (explicit)
+Net in Net, no dependencies
+Net in Net, depends on:
+Net in Net (explicit)
+Bocho in swift-ast, no dependencies
+Source in swift-ast, depends on:
+Bocho in swift-ast (explicit)
+Diagnostic in swift-ast, depends on:
+Bocho in swift-ast (explicit)
+Source in swift-ast (explicit)
+AST in swift-ast, depends on:
+Bocho in swift-ast (explicit)
+Source in swift-ast (explicit)
+Diagnostic in swift-ast (explicit)
+Lexer in swift-ast, depends on:
+Bocho in swift-ast (explicit)
+Source in swift-ast (explicit)
+Diagnostic in swift-ast (explicit)
+Parser in swift-ast, depends on:
+Bocho in swift-ast (explicit)
+Source in swift-ast (explicit)
+Diagnostic in swift-ast (explicit)
+AST in swift-ast (explicit)
+Lexer in swift-ast (explicit)
+Sema in swift-ast, depends on:
+Bocho in swift-ast (explicit)
+Source in swift-ast (explicit)
+Diagnostic in swift-ast (explicit)
+AST in swift-ast (explicit)
+SwiftAST in swift-ast, depends on:
+Bocho in swift-ast (explicit)
+Source in swift-ast (explicit)
+Diagnostic in swift-ast (explicit)
+AST in swift-ast (explicit)
+Lexer in swift-ast (explicit)
+Parser in swift-ast (explicit)
+Sema in swift-ast (explicit)
+Expressible in Song, depends on:
+Net in Net (explicit)
+SwiftAST in swift-ast (explicit)
+Song in Song, depends on:
+Expressible in Song (explicit)
+Net in Net (explicit)
+SwiftAST in swift-ast (explicit)
+Datable in Datable (explicit)
+Song in Song, depends on:
+Song in Song (explicit)
+Expressible in Song (explicit)
+Net in Net (explicit)
+SwiftAST in swift-ast (explicit)
+Datable in Datable (explicit)
+Monolith in Monolith, depends on:
+Datable in Datable (explicit)
+Song in Song (explicit)
+Crypto in swift-crypto (explicit)
+Monolith in Monolith, depends on:
+Monolith in Monolith (explicit)
+Datable in Datable (explicit)
+Song in Song (explicit)
+Crypto in swift-crypto (explicit)
+Logging in swift-log, no dependencies
+Logging in swift-log, depends on:
+Logging in swift-log (explicit)
+Ghostwriter in Ghostwriter, depends on:
+Datable in Datable (explicit)
+Ghostwriter in Ghostwriter, depends on:
+Ghostwriter in Ghostwriter (explicit)
+Datable in Datable (explicit)
+KeychainMacOS in KeychainMacOS, depends on:
+Crypto in swift-crypto (explicit)
+KeychainMacOS in KeychainMacOS, depends on:
+KeychainMacOS in KeychainMacOS (explicit)
+Crypto in swift-crypto (explicit)
+Keychain in Keychain, depends on:
+KeychainMacOS in KeychainMacOS (explicit)
+Crypto in swift-crypto (explicit)
+Keychain in Keychain, depends on:
+Keychain in Keychain (explicit)
+KeychainMacOS in KeychainMacOS (explicit)
+Crypto in swift-crypto (explicit)
+SwiftQueue in SwiftQueue, no dependencies
+SwiftQueue in SwiftQueue, depends on:
+SwiftQueue in SwiftQueue (explicit)
+Chord in Chord, depends on:
+SwiftQueue in SwiftQueue (explicit)
+Chord in Chord, depends on:
+Chord in Chord (explicit)
+SwiftQueue in SwiftQueue (explicit)
+TransmissionTypes in TransmissionTypes, no dependencies
+TransmissionTypes in TransmissionTypes, depends on:
+TransmissionTypes in TransmissionTypes (explicit)
+Transport in Transport, depends on:
+Net in Net (explicit)
+Transport in Transport, depends on:
+Transport in Transport (explicit)
+Net in Net (explicit)
+TransmissionMacOS in TransmissionMacOS, depends on:
+TransmissionTypes in TransmissionTypes (explicit)
+Chord in Chord (explicit)
+Datable in Datable (explicit)
+Transport in Transport (explicit)
+Logging in swift-log (explicit)
+TransmissionMacOS in TransmissionMacOS, depends on:
+TransmissionMacOS in TransmissionMacOS (explicit)
+TransmissionTypes in TransmissionTypes (explicit)
+Chord in Chord (explicit)
+Datable in Datable (explicit)
+Transport in Transport (explicit)
+Logging in swift-log (explicit)
+Transmission in Transmission, depends on:
+TransmissionTypes in TransmissionTypes (explicit)
+TransmissionMacOS in TransmissionMacOS (explicit)
+Chord in Chord (explicit)
+Datable in Datable (explicit)
+Transport in Transport (explicit)
+Logging in swift-log (explicit)
+Transmission in Transmission, depends on:
+Transmission in Transmission (explicit)
+TransmissionTypes in TransmissionTypes (explicit)
+TransmissionMacOS in TransmissionMacOS (explicit)
+Chord in Chord (explicit)
+Datable in Datable (explicit)
+Transport in Transport (explicit)
+Logging in swift-log (explicit)
+SwiftHexTools in SwiftHexTools, no dependencies
+SwiftHexTools in SwiftHexTools, depends on:
+SwiftHexTools in SwiftHexTools (explicit)
+TransmissionTransport in TransmissionTransport, depends on:
+Chord in Chord (explicit)
+Datable in Datable (explicit)
+Transport in Transport (explicit)
+Net in Net (explicit)
+Transmission in Transmission (explicit)
+SwiftHexTools in SwiftHexTools (explicit)
+Logging in swift-log (explicit)
+TransmissionTransport in TransmissionTransport, depends on:
+TransmissionTransport in TransmissionTransport (explicit)
+Chord in Chord (explicit)
+Datable in Datable (explicit)
+Transport in Transport (explicit)
+Net in Net (explicit)
+Transmission in Transmission (explicit)
+SwiftHexTools in SwiftHexTools (explicit)
+Logging in swift-log (explicit)
+ShadowSwift in ShadowSwift, depends on:
+Net in Net (explicit)
+Chord in Chord (explicit)
+Datable in Datable (explicit)
+Transmission in Transmission (explicit)
+TransmissionTransport in TransmissionTransport (explicit)
+Transport in Transport (explicit)
+Logging in swift-log (explicit)
+Crypto in swift-crypto (explicit)
+ShadowSwift in ShadowSwift, depends on:
+ShadowSwift in ShadowSwift (explicit)
+Net in Net (explicit)
+Chord in Chord (explicit)
+Datable in Datable (explicit)
+Transmission in Transmission (explicit)
+TransmissionTransport in TransmissionTransport (explicit)
+Transport in Transport (explicit)
+Logging in swift-log (explicit)
+Crypto in swift-crypto (explicit)
+ReplicantSwift in ReplicantSwift, depends on:
+Crypto in swift-crypto (explicit)
+Logging in swift-log (explicit)
+Datable in Datable (explicit)
+Ghostwriter in Ghostwriter (explicit)
+Keychain in Keychain (explicit)
+Monolith in Monolith (explicit)
+Net in Net (explicit)
+ShadowSwift in ShadowSwift (explicit)
+Song in Song (explicit)
+SwiftHexTools in SwiftHexTools (explicit)
+SwiftQueue in SwiftQueue (explicit)
+Transmission in Transmission (explicit)
+ReplicantSwift in ReplicantSwift, depends on:
+ReplicantSwift in ReplicantSwift (explicit)
+Crypto in swift-crypto (explicit)
+Logging in swift-log (explicit)
+Datable in Datable (explicit)
+Ghostwriter in Ghostwriter (explicit)
+Keychain in Keychain (explicit)
+Monolith in Monolith (explicit)
+Net in Net (explicit)
+ShadowSwift in ShadowSwift (explicit)
+Song in Song (explicit)
+SwiftHexTools in SwiftHexTools (explicit)
+SwiftQueue in SwiftQueue (explicit)
+Transmission in Transmission (explicit)
+ReplicantSwiftClient in ReplicantSwiftClient, depends on:
+Datable in Datable (explicit)
+Monolith in Monolith (explicit)
+ReplicantSwift in ReplicantSwift (explicit)
+Song in Song (explicit)
+SwiftQueue in SwiftQueue (explicit)
+Transmission in Transmission (explicit)
+Transport in Transport (explicit)
+TransmissionTransport in TransmissionTransport (explicit)
+Keychain in Keychain (explicit)
+Crypto in swift-crypto (explicit)
+Logging in swift-log (explicit)
+ReplicantSwiftClient in ReplicantSwiftClient, depends on:
+ReplicantSwiftClient in ReplicantSwiftClient (explicit)
+Datable in Datable (explicit)
+Monolith in Monolith (explicit)
+ReplicantSwift in ReplicantSwift (explicit)
+Song in Song (explicit)
+SwiftQueue in SwiftQueue (explicit)
+Transmission in Transmission (explicit)
+Transport in Transport (explicit)
+TransmissionTransport in TransmissionTransport (explicit)
+Keychain in Keychain (explicit)
+Crypto in swift-crypto (explicit)
+Logging in swift-log (explicit)
+RawPacket in AdversaryLabClientSwift, no dependencies
+Bits in Bits, depends on:
+Datable in Datable (explicit)
+Bits in Bits, depends on:
+Bits in Bits (explicit)
+Datable in Datable (explicit)
+InternetProtocols in InternetProtocols, depends on:
+Bits in Bits (explicit)
+Datable in Datable (explicit)
+Net in Net (explicit)
+InternetProtocols in InternetProtocols, depends on:
+InternetProtocols in InternetProtocols (explicit)
+Bits in Bits (explicit)
+Datable in Datable (explicit)
+Net in Net (explicit)
+NetUtils in NetUtils, no dependencies
+NetUtils in NetUtils, depends on:
+NetUtils in NetUtils (explicit)
+PacketStream in PacketStream, no dependencies
+PacketStream in PacketStream, depends on:
+PacketStream in PacketStream (explicit)
+PacketCaptureBPF in PacketCaptureBPF, depends on:
+PacketStream in PacketStream (explicit)
+Datable in Datable (explicit)
+Bits in Bits (explicit)
+SwiftQueue in SwiftQueue (explicit)
+PacketCaptureBPF in PacketCaptureBPF, depends on:
+PacketCaptureBPF in PacketCaptureBPF (explicit)
+PacketStream in PacketStream (explicit)
+Datable in Datable (explicit)
+Bits in Bits (explicit)
+SwiftQueue in SwiftQueue (explicit)
+ZIPFoundation in ZIPFoundation, no dependencies
+ZIPFoundation in ZIPFoundation, depends on:
+ZIPFoundation in ZIPFoundation (explicit)
+Symphony in Song, depends on:
+Expressible in Song (explicit)
+Song in Song (explicit)
+Net in Net (explicit)
+SwiftAST in swift-ast (explicit)
+Datable in Datable (explicit)
+Symphony in Song, depends on:
+Symphony in Song (explicit)
+Expressible in Song (explicit)
+Song in Song (explicit)
+Net in Net (explicit)
+SwiftAST in swift-ast (explicit)
+Datable in Datable (explicit)
+AdversaryLabClientCore in AdversaryLabClientSwift, depends on:
+RawPacket in AdversaryLabClientSwift (explicit)
+Bits in Bits (explicit)
+Chord in Chord (explicit)
+Datable in Datable (explicit)
+InternetProtocols in InternetProtocols (explicit)
+NetUtils in NetUtils (explicit)
+PacketCaptureBPF in PacketCaptureBPF (explicit)
+PacketStream in PacketStream (explicit)
+SwiftQueue in SwiftQueue (explicit)
+ZIPFoundation in ZIPFoundation (explicit)
+Symphony in Song (explicit)
+AdversaryLabClientCore in AdversaryLabClientSwift, depends on:
+AdversaryLabClientCore in AdversaryLabClientSwift (explicit)
+RawPacket in AdversaryLabClientSwift (explicit)
+Bits in Bits (explicit)
+Chord in Chord (explicit)
+Datable in Datable (explicit)
+InternetProtocols in InternetProtocols (explicit)
+NetUtils in NetUtils (explicit)
+PacketCaptureBPF in PacketCaptureBPF (explicit)
+PacketStream in PacketStream (explicit)
+SwiftQueue in SwiftQueue (explicit)
+ZIPFoundation in ZIPFoundation (explicit)
+Symphony in Song (explicit)
+Canary in Canary, depends on:
+ReplicantSwiftClient in ReplicantSwiftClient (explicit)
+ShadowSwift in ShadowSwift (explicit)
+AdversaryLabClientCore in AdversaryLabClientSwift (explicit)
+Logging in swift-log (explicit)
+NetUtils in NetUtils (explicit)
+Canary in Canary, depends on:
+Canary in Canary (explicit)
+ReplicantSwiftClient in ReplicantSwiftClient (explicit)
+ShadowSwift in ShadowSwift (explicit)
+AdversaryLabClientCore in AdversaryLabClientSwift (explicit)
+Logging in swift-log (explicit)
+NetUtils in NetUtils (explicit)
+CanaryiOS in CanaryiOS, depends on:
+KeychainLinux in KeychainLinux (explicit)
+Canary in Canary (explicit)

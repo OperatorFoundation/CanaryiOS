@@ -7,87 +7,68 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1A9C37AC2338EEDA11F77F63 /* libPods-CanaryiOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ECAA7D7F87577745B5E7FADE /* libPods-CanaryiOS.a */; };
-		E1882B6828353D5500DEE44F /* CanaryiOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1882B6728353D5500DEE44F /* CanaryiOSApp.swift */; };
-		E1882B6A28353D5500DEE44F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1882B6928353D5500DEE44F /* ContentView.swift */; };
-		E1882B6C28353D5500DEE44F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1882B6B28353D5500DEE44F /* Assets.xcassets */; };
-		E1882B6F28353D5500DEE44F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E1882B6E28353D5500DEE44F /* Preview Assets.xcassets */; };
+		E19C171C2835826100B29794 /* CanaryiOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19C171B2835826100B29794 /* CanaryiOSApp.swift */; };
+		E19C171E2835826100B29794 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19C171D2835826100B29794 /* ContentView.swift */; };
+		E19C17202835826200B29794 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E19C171F2835826200B29794 /* Assets.xcassets */; };
+		E19C17232835826200B29794 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E19C17222835826200B29794 /* Preview Assets.xcassets */; };
+		E19C172B283582BB00B29794 /* Canary in Frameworks */ = {isa = PBXBuildFile; productRef = E19C172A283582BB00B29794 /* Canary */; };
+		E1EF5FD92836C533009B2C9A /* KeychainLinux in Frameworks */ = {isa = PBXBuildFile; productRef = E1EF5FD82836C533009B2C9A /* KeychainLinux */; };
+		E1EF5FDC2836C86F009B2C9A /* KeychainLinux in Frameworks */ = {isa = PBXBuildFile; productRef = E1EF5FDB2836C86F009B2C9A /* KeychainLinux */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		40FD40E94CF65CF014D97196 /* Pods-CanaryiOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CanaryiOS.release.xcconfig"; path = "Target Support Files/Pods-CanaryiOS/Pods-CanaryiOS.release.xcconfig"; sourceTree = "<group>"; };
-		9D23E641240C326E622A3928 /* Pods-CanaryiOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CanaryiOS.debug.xcconfig"; path = "Target Support Files/Pods-CanaryiOS/Pods-CanaryiOS.debug.xcconfig"; sourceTree = "<group>"; };
-		E1882B6428353D5500DEE44F /* CanaryiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CanaryiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		E1882B6728353D5500DEE44F /* CanaryiOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanaryiOSApp.swift; sourceTree = "<group>"; };
-		E1882B6928353D5500DEE44F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		E1882B6B28353D5500DEE44F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		E1882B6E28353D5500DEE44F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		ECAA7D7F87577745B5E7FADE /* libPods-CanaryiOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CanaryiOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E19C17182835826100B29794 /* CanaryiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CanaryiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E19C171B2835826100B29794 /* CanaryiOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanaryiOSApp.swift; sourceTree = "<group>"; };
+		E19C171D2835826100B29794 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		E19C171F2835826200B29794 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E19C17222835826200B29794 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		E1882B6128353D5500DEE44F /* Frameworks */ = {
+		E19C17152835826100B29794 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1A9C37AC2338EEDA11F77F63 /* libPods-CanaryiOS.a in Frameworks */,
+				E1EF5FDC2836C86F009B2C9A /* KeychainLinux in Frameworks */,
+				E19C172B283582BB00B29794 /* Canary in Frameworks */,
+				E1EF5FD92836C533009B2C9A /* KeychainLinux in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		399966D5BFBD7AD4611C19D6 /* Frameworks */ = {
+		E19C170F2835826100B29794 = {
 			isa = PBXGroup;
 			children = (
-				ECAA7D7F87577745B5E7FADE /* libPods-CanaryiOS.a */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		B33EB96C78F6654F6E2321DF /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				9D23E641240C326E622A3928 /* Pods-CanaryiOS.debug.xcconfig */,
-				40FD40E94CF65CF014D97196 /* Pods-CanaryiOS.release.xcconfig */,
-			);
-			name = Pods;
-			path = Pods;
-			sourceTree = "<group>";
-		};
-		E1882B5B28353D5500DEE44F = {
-			isa = PBXGroup;
-			children = (
-				E1882B6628353D5500DEE44F /* CanaryiOS */,
-				E1882B6528353D5500DEE44F /* Products */,
-				B33EB96C78F6654F6E2321DF /* Pods */,
-				399966D5BFBD7AD4611C19D6 /* Frameworks */,
+				E19C171A2835826100B29794 /* CanaryiOS */,
+				E19C17192835826100B29794 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		E1882B6528353D5500DEE44F /* Products */ = {
+		E19C17192835826100B29794 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E1882B6428353D5500DEE44F /* CanaryiOS.app */,
+				E19C17182835826100B29794 /* CanaryiOS.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		E1882B6628353D5500DEE44F /* CanaryiOS */ = {
+		E19C171A2835826100B29794 /* CanaryiOS */ = {
 			isa = PBXGroup;
 			children = (
-				E1882B6728353D5500DEE44F /* CanaryiOSApp.swift */,
-				E1882B6928353D5500DEE44F /* ContentView.swift */,
-				E1882B6B28353D5500DEE44F /* Assets.xcassets */,
-				E1882B6D28353D5500DEE44F /* Preview Content */,
+				E19C171B2835826100B29794 /* CanaryiOSApp.swift */,
+				E19C171D2835826100B29794 /* ContentView.swift */,
+				E19C171F2835826200B29794 /* Assets.xcassets */,
+				E19C17212835826200B29794 /* Preview Content */,
 			);
 			path = CanaryiOS;
 			sourceTree = "<group>";
 		};
-		E1882B6D28353D5500DEE44F /* Preview Content */ = {
+		E19C17212835826200B29794 /* Preview Content */ = {
 			isa = PBXGroup;
 			children = (
-				E1882B6E28353D5500DEE44F /* Preview Assets.xcassets */,
+				E19C17222835826200B29794 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
 			sourceTree = "<group>";
@@ -95,41 +76,44 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		E1882B6328353D5500DEE44F /* CanaryiOS */ = {
+		E19C17172835826100B29794 /* CanaryiOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E1882B7228353D5500DEE44F /* Build configuration list for PBXNativeTarget "CanaryiOS" */;
+			buildConfigurationList = E19C17262835826200B29794 /* Build configuration list for PBXNativeTarget "CanaryiOS" */;
 			buildPhases = (
-				5CA26F931E7AD2E7080FFE9E /* [CP] Check Pods Manifest.lock */,
-				E1882B6028353D5500DEE44F /* Sources */,
-				E1882B6128353D5500DEE44F /* Frameworks */,
-				E1882B6228353D5500DEE44F /* Resources */,
-				E873F9BD031C6B3C0734D8C9 /* [CP] Copy Pods Resources */,
+				E19C17142835826100B29794 /* Sources */,
+				E19C17152835826100B29794 /* Frameworks */,
+				E19C17162835826100B29794 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = CanaryiOS;
+			packageProductDependencies = (
+				E19C172A283582BB00B29794 /* Canary */,
+				E1EF5FD82836C533009B2C9A /* KeychainLinux */,
+				E1EF5FDB2836C86F009B2C9A /* KeychainLinux */,
+			);
 			productName = CanaryiOS;
-			productReference = E1882B6428353D5500DEE44F /* CanaryiOS.app */;
+			productReference = E19C17182835826100B29794 /* CanaryiOS.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		E1882B5C28353D5500DEE44F /* Project object */ = {
+		E19C17102835826100B29794 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1340;
 				LastUpgradeCheck = 1340;
 				TargetAttributes = {
-					E1882B6328353D5500DEE44F = {
+					E19C17172835826100B29794 = {
 						CreatedOnToolsVersion = 13.4;
 					};
 				};
 			};
-			buildConfigurationList = E1882B5F28353D5500DEE44F /* Build configuration list for PBXProject "CanaryiOS" */;
+			buildConfigurationList = E19C17132835826100B29794 /* Build configuration list for PBXProject "CanaryiOS" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -137,84 +121,47 @@
 				en,
 				Base,
 			);
-			mainGroup = E1882B5B28353D5500DEE44F;
-			productRefGroup = E1882B6528353D5500DEE44F /* Products */;
+			mainGroup = E19C170F2835826100B29794;
+			packageReferences = (
+				E19C1729283582BB00B29794 /* XCRemoteSwiftPackageReference "Canary" */,
+				E1EF5FD72836C533009B2C9A /* XCRemoteSwiftPackageReference "KeychainLinux" */,
+				E1EF5FDA2836C86F009B2C9A /* XCRemoteSwiftPackageReference "KeychainLinux" */,
+			);
+			productRefGroup = E19C17192835826100B29794 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				E1882B6328353D5500DEE44F /* CanaryiOS */,
+				E19C17172835826100B29794 /* CanaryiOS */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		E1882B6228353D5500DEE44F /* Resources */ = {
+		E19C17162835826100B29794 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E1882B6F28353D5500DEE44F /* Preview Assets.xcassets in Resources */,
-				E1882B6C28353D5500DEE44F /* Assets.xcassets in Resources */,
+				E19C17232835826200B29794 /* Preview Assets.xcassets in Resources */,
+				E19C17202835826200B29794 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		5CA26F931E7AD2E7080FFE9E /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-CanaryiOS-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E873F9BD031C6B3C0734D8C9 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CanaryiOS/Pods-CanaryiOS-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CanaryiOS/Pods-CanaryiOS-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CanaryiOS/Pods-CanaryiOS-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
-		E1882B6028353D5500DEE44F /* Sources */ = {
+		E19C17142835826100B29794 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E1882B6A28353D5500DEE44F /* ContentView.swift in Sources */,
-				E1882B6828353D5500DEE44F /* CanaryiOSApp.swift in Sources */,
+				E19C171E2835826100B29794 /* ContentView.swift in Sources */,
+				E19C171C2835826100B29794 /* CanaryiOSApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		E1882B7028353D5500DEE44F /* Debug */ = {
+		E19C17242835826200B29794 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -264,7 +211,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -274,7 +221,7 @@
 			};
 			name = Debug;
 		};
-		E1882B7128353D5500DEE44F /* Release */ = {
+		E19C17252835826200B29794 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -318,7 +265,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -328,9 +275,8 @@
 			};
 			name = Release;
 		};
-		E1882B7328353D5500DEE44F /* Debug */ = {
+		E19C17272835826200B29794 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9D23E641240C326E622A3928 /* Pods-CanaryiOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -345,6 +291,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -358,9 +305,8 @@
 			};
 			name = Debug;
 		};
-		E1882B7428353D5500DEE44F /* Release */ = {
+		E19C17282835826200B29794 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 40FD40E94CF65CF014D97196 /* Pods-CanaryiOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -375,6 +321,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -391,25 +338,70 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		E1882B5F28353D5500DEE44F /* Build configuration list for PBXProject "CanaryiOS" */ = {
+		E19C17132835826100B29794 /* Build configuration list for PBXProject "CanaryiOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E1882B7028353D5500DEE44F /* Debug */,
-				E1882B7128353D5500DEE44F /* Release */,
+				E19C17242835826200B29794 /* Debug */,
+				E19C17252835826200B29794 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E1882B7228353D5500DEE44F /* Build configuration list for PBXNativeTarget "CanaryiOS" */ = {
+		E19C17262835826200B29794 /* Build configuration list for PBXNativeTarget "CanaryiOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E1882B7328353D5500DEE44F /* Debug */,
-				E1882B7428353D5500DEE44F /* Release */,
+				E19C17272835826200B29794 /* Debug */,
+				E19C17282835826200B29794 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E19C1729283582BB00B29794 /* XCRemoteSwiftPackageReference "Canary" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/OperatorFoundation/Canary.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+		E1EF5FD72836C533009B2C9A /* XCRemoteSwiftPackageReference "KeychainLinux" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/OperatorFoundation/KeychainLinux.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+		E1EF5FDA2836C86F009B2C9A /* XCRemoteSwiftPackageReference "KeychainLinux" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/OperatorFoundation/KeychainLinux.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E19C172A283582BB00B29794 /* Canary */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E19C1729283582BB00B29794 /* XCRemoteSwiftPackageReference "Canary" */;
+			productName = Canary;
+		};
+		E1EF5FD82836C533009B2C9A /* KeychainLinux */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E1EF5FD72836C533009B2C9A /* XCRemoteSwiftPackageReference "KeychainLinux" */;
+			productName = KeychainLinux;
+		};
+		E1EF5FDB2836C86F009B2C9A /* KeychainLinux */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E1EF5FDA2836C86F009B2C9A /* XCRemoteSwiftPackageReference "KeychainLinux" */;
+			productName = KeychainLinux;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
-	rootObject = E1882B5C28353D5500DEE44F /* Project object */;
+	rootObject = E19C17102835826100B29794 /* Project object */;
 }

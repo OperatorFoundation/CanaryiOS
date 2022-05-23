@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-import FileBrowser
 
 struct ContentView: View {
     //Display Strings
@@ -62,9 +61,8 @@ struct ContentView: View {
         VStack(alignment: .center){
                 Text(logTitle)
                 Text("")
-
                 Spacer()
-            }
+        }
     }
 }
 
