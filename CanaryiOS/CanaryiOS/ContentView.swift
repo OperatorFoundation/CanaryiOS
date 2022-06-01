@@ -55,6 +55,8 @@ struct ContentView: View {
             Button(runButton)
             {
                 //Run functionality
+                let canaryController = CanaryController()
+                canaryController.runCanary()
             }
             .buttonStyle(.bordered)
         }

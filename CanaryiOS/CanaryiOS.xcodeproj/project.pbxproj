@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		763A2A5C284185D8001B3A32 /* CanaryLibraryiOS in Frameworks */ = {isa = PBXBuildFile; productRef = 763A2A5B284185D8001B3A32 /* CanaryLibraryiOS */; };
+		76555CC82847ED83002140A7 /* CanaryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76555CC72847ED83002140A7 /* CanaryController.swift */; };
 		E19C171C2835826100B29794 /* CanaryiOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19C171B2835826100B29794 /* CanaryiOSApp.swift */; };
 		E19C171E2835826100B29794 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19C171D2835826100B29794 /* ContentView.swift */; };
 		E19C17202835826200B29794 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E19C171F2835826200B29794 /* Assets.xcassets */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		76555CC72847ED83002140A7 /* CanaryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanaryController.swift; sourceTree = "<group>"; };
 		E19C17182835826100B29794 /* CanaryiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CanaryiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E19C171B2835826100B29794 /* CanaryiOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanaryiOSApp.swift; sourceTree = "<group>"; };
 		E19C171D2835826100B29794 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -55,6 +57,7 @@
 			children = (
 				E19C171B2835826100B29794 /* CanaryiOSApp.swift */,
 				E19C171D2835826100B29794 /* ContentView.swift */,
+				76555CC72847ED83002140A7 /* CanaryController.swift */,
 				E19C171F2835826200B29794 /* Assets.xcassets */,
 				E19C17212835826200B29794 /* Preview Content */,
 			);
@@ -145,6 +148,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				76555CC82847ED83002140A7 /* CanaryController.swift in Sources */,
 				E19C171E2835826100B29794 /* ContentView.swift in Sources */,
 				E19C171C2835826100B29794 /* CanaryiOSApp.swift in Sources */,
 			);
