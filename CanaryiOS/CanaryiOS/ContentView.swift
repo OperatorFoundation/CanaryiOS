@@ -35,9 +35,9 @@ struct ContentView: View {
 
             Button(browseButton)
             {
-                //fix me
-                //let fileBrowser = FileBrowser()
-                //present(fileBrowser, animated: true, completion: nil)
+                // FIXME: fileBrowser
+                // let fileBrowser = FileBrowser()
+                // present(fileBrowser, animated: true, completion: nil)
             }
             .buttonStyle(.borderedProminent)
             Spacer()
@@ -56,7 +56,18 @@ struct ContentView: View {
             {
                 //Run functionality
                 let canaryController = CanaryController()
-                canaryController.runCanary()
+                
+                do
+                {
+                    let documentDirectory = try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
+                    
+                    canaryController.runCanary(configDirectory: documentDirectory, numberOfTimesToRun: numberOfRuns)
+                }
+                catch
+                {
+                    // print("")
+                }
+                
             }
             .buttonStyle(.bordered)
         }
