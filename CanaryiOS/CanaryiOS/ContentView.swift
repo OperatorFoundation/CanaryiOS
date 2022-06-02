@@ -39,6 +39,7 @@ struct ContentView: View {
             }
                 .buttonStyle(.borderedProminent)
             Spacer()
+                .frame(height: 55)
         }
         
         VStack(alignment: .center){
@@ -51,7 +52,6 @@ struct ContentView: View {
                                 step: step){}
                 Spacer(minLength:25)
             }
-            
             Button(runButton)
             {
                 //Run functionality
@@ -70,7 +70,8 @@ struct ContentView: View {
             }
             .buttonStyle(.bordered)
         }
-        
+        Spacer()
+            .frame(height: 40)
         VStack(alignment: .center){
             Text(logTitle)
             ScrollView {
