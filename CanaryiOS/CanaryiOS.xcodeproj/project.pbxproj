@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		763A2A5C284185D8001B3A32 /* CanaryLibraryiOS in Frameworks */ = {isa = PBXBuildFile; productRef = 763A2A5B284185D8001B3A32 /* CanaryLibraryiOS */; };
 		76555CC82847ED83002140A7 /* CanaryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76555CC72847ED83002140A7 /* CanaryController.swift */; };
+		AEB5050B28525579005E8D85 /* Logging in Frameworks */ = {isa = PBXBuildFile; productRef = AEB5050A28525579005E8D85 /* Logging */; };
 		E19C171C2835826100B29794 /* CanaryiOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19C171B2835826100B29794 /* CanaryiOSApp.swift */; };
 		E19C171E2835826100B29794 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19C171D2835826100B29794 /* ContentView.swift */; };
 		E19C17202835826200B29794 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E19C171F2835826200B29794 /* Assets.xcassets */; };
@@ -30,6 +31,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AEB5050B28525579005E8D85 /* Logging in Frameworks */,
 				763A2A5C284185D8001B3A32 /* CanaryLibraryiOS in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -92,6 +94,7 @@
 			name = CanaryiOS;
 			packageProductDependencies = (
 				763A2A5B284185D8001B3A32 /* CanaryLibraryiOS */,
+				AEB5050A28525579005E8D85 /* Logging */,
 			);
 			productName = CanaryiOS;
 			productReference = E19C17182835826100B29794 /* CanaryiOS.app */;
@@ -123,6 +126,7 @@
 			mainGroup = E19C170F2835826100B29794;
 			packageReferences = (
 				763A2A5A284185D8001B3A32 /* XCRemoteSwiftPackageReference "CanaryLibraryiOS" */,
+				AEB5050928525579005E8D85 /* XCRemoteSwiftPackageReference "swift-log" */,
 			);
 			productRefGroup = E19C17192835826100B29794 /* Products */;
 			projectDirPath = "";
@@ -209,7 +213,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -263,7 +267,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -369,6 +373,14 @@
 				kind = branch;
 			};
 		};
+		AEB5050928525579005E8D85 /* XCRemoteSwiftPackageReference "swift-log" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-log.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -376,6 +388,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 763A2A5A284185D8001B3A32 /* XCRemoteSwiftPackageReference "CanaryLibraryiOS" */;
 			productName = CanaryLibraryiOS;
+		};
+		AEB5050A28525579005E8D85 /* Logging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AEB5050928525579005E8D85 /* XCRemoteSwiftPackageReference "swift-log" */;
+			productName = Logging;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

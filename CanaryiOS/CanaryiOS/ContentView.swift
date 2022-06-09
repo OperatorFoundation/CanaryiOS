@@ -6,14 +6,15 @@
 //
 
 import SwiftUI
+import UniformTypeIdentifiers
 
 struct ContentView: View {
     //Display Strings
     let configTitle: String = "Transport load Config"
     let configSearchPrompt = "Please enter the location of your Transport load Config"
-    let browseButton = "Browse"
+    let browseButtonTitle = "Browse"
     let runTimePrompt = "How many times do you want to run the test?"
-    let runButton = "Run Test"
+    let runButtonTitle = "Run Test"
     let logTitle = "Run Log"
     let runTimes = " Time(s)"
     //Constants
@@ -23,26 +24,30 @@ struct ContentView: View {
     @State private var configLocation = "No Config Loaded"
     @State private var numberOfRuns = 1
     @State private var runLogs = " Lorem ipsum "
+    @State var shows = false
     
     
     var body: some View
     {
-//        VStack(alignment: .center)
-//        {
-//                Text(configTitle)
-//            TextField("test", text: $configLocation) {}
-//                .multilineTextAlignment(.center)
-//                .foregroundColor(Color.red)
-//
-////            Button(browseButton) {
-////                // FIXME: fileBrowser
-////                // let fileBrowser = FileBrowser()
-////                // present(fileBrowser, animated: true, completion: nil)
-////            }
-////                .buttonStyle(.borderedProminent)
-////            Spacer()
-////                .frame(height: 55)
-//        }
+        VStack(alignment: .center)
+        {
+            Text(configTitle)
+            TextField("test", text: $configLocation) {}
+                .multilineTextAlignment(.center)
+                .foregroundColor(Color.red)
+
+            Button(action: { self.shows.toggle() })
+            {
+                Text("Select File")
+            }
+                .sheet(isPresented: self.$shows)
+                {
+                    DirectoryPickerView()
+                }
+
+            Spacer()
+                .frame(height: 55)
+        }
         
         VStack(alignment: .center)
         {
@@ -56,7 +61,7 @@ struct ContentView: View {
                                 step: step){}
                 Spacer(minLength:25)
             }
-            Button(runButton)
+            Button(runButtonTitle)
             {
                 //Run functionality
                 let canaryController = CanaryController()
@@ -97,6 +102,22 @@ struct ContentView: View {
         }
     }
 }
+
+struct DirectoryPickerView: UIViewControllerRepresentable
+{
+    func updateUIViewController(_ uiViewController: UIDocumentPickerViewController, context: Context) {
+        //
+    }
+    
+    func makeUIViewController(context: Context) -> UIDocumentPickerViewController
+    {
+        let documentPicker = UIDocumentPickerViewController(forOpeningContentTypes: [UTType.folder])
+        
+            return documentPicker
+    }
+}
+
+
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
