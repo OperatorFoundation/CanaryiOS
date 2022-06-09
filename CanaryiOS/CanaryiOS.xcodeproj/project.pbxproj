@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7628547C2852A16B0064ACAF /* CanaryLogHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7628547B2852A16B0064ACAF /* CanaryLogHandler.swift */; };
+		7628547E2852A19E0064ACAF /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7628547D2852A19E0064ACAF /* Globals.swift */; };
 		763A2A5C284185D8001B3A32 /* CanaryLibraryiOS in Frameworks */ = {isa = PBXBuildFile; productRef = 763A2A5B284185D8001B3A32 /* CanaryLibraryiOS */; };
 		76555CC82847ED83002140A7 /* CanaryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76555CC72847ED83002140A7 /* CanaryController.swift */; };
 		AEB5050B28525579005E8D85 /* Logging in Frameworks */ = {isa = PBXBuildFile; productRef = AEB5050A28525579005E8D85 /* Logging */; };
@@ -17,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7628547B2852A16B0064ACAF /* CanaryLogHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanaryLogHandler.swift; sourceTree = "<group>"; };
+		7628547D2852A19E0064ACAF /* Globals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Globals.swift; sourceTree = "<group>"; };
 		76555CC72847ED83002140A7 /* CanaryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanaryController.swift; sourceTree = "<group>"; };
 		76555CC92847FC04002140A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		E19C17182835826100B29794 /* CanaryiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CanaryiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -62,6 +66,8 @@
 				E19C171B2835826100B29794 /* CanaryiOSApp.swift */,
 				E19C171D2835826100B29794 /* ContentView.swift */,
 				76555CC72847ED83002140A7 /* CanaryController.swift */,
+				7628547B2852A16B0064ACAF /* CanaryLogHandler.swift */,
+				7628547D2852A19E0064ACAF /* Globals.swift */,
 				E19C171F2835826200B29794 /* Assets.xcassets */,
 				E19C17212835826200B29794 /* Preview Content */,
 			);
@@ -157,6 +163,8 @@
 				76555CC82847ED83002140A7 /* CanaryController.swift in Sources */,
 				E19C171E2835826100B29794 /* ContentView.swift in Sources */,
 				E19C171C2835826100B29794 /* CanaryiOSApp.swift in Sources */,
+				7628547E2852A19E0064ACAF /* Globals.swift in Sources */,
+				7628547C2852A16B0064ACAF /* CanaryLogHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
