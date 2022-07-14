@@ -67,17 +67,17 @@ struct ContentView: View
                     
                     do
                     {
-//                        let documentDirectory = try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
-//                        let directoryContents = try FileManager.default.contentsOfDirectory(at: documentDirectory, includingPropertiesForKeys: nil)
-//
-//                        if directoryContents.isEmpty
-//                        {
-//                            // TODO: For test purposes only, this is not a valid config.
-//                            let testFileURL = documentDirectory.appendingPathComponent("emptyShadowConfig.json")
-//                            let testFileContents = "{\"password\": \"abc123\", \"cipherName\": \"DarkStar\", \"serverIP\": \"0.0.0.0\", \"port\": 0000}"
-//
-//                            try testFileContents.write(to: testFileURL, atomically: true, encoding: .utf8)
-//                        }
+                        let documentDirectory = try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
+                        let directoryContents = try FileManager.default.contentsOfDirectory(at: documentDirectory, includingPropertiesForKeys: nil)
+
+                        if directoryContents.isEmpty
+                        {
+                            // TODO: For test purposes only, this is not a valid config.
+                            let testFileURL = documentDirectory.appendingPathComponent("emptyShadowConfig.json")
+                            let testFileContents = "{\"password\": \"abc123\", \"cipherName\": \"DarkStar\", \"serverIP\": \"0.0.0.0\", \"port\": 0000}"
+
+                            try testFileContents.write(to: testFileURL, atomically: true, encoding: .utf8)
+                        }
                         
                         canaryController.runCanary(configDirectory: configDirectory, numberOfTimesToRun: numberOfRuns)
                     }

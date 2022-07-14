@@ -14,8 +14,9 @@ class CanaryController
 {
     func runCanary(configDirectory: URL, numberOfTimesToRun: Int)
     {
+        let configPath = configDirectory.absoluteString
         let logger = Logger(label: "CanaryLibraryiOSExample")
-        let canary = Canary(configURL: configDirectory, logger: logger, timesToRun: numberOfTimesToRun)
+        let canary = Canary(configPath: configPath, logger: logger, timesToRun: numberOfTimesToRun)
         
         canary.runTest(runAsync: true)
     }
