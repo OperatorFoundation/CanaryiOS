@@ -1,8 +1,8 @@
 //
 //  ShareViewController.swift
-//  shareConfig
+//  ReceiveConfig
 //
-//  Created by Robert on 7/19/22.
+//  Created by Robert on 7/25/22.
 //
 
 import UIKit
