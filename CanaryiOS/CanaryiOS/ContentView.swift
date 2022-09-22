@@ -8,10 +8,27 @@
 import SwiftUI
 import UniformTypeIdentifiers
 
+var configFileName: String = "blank"
+
+struct configSelectionView:View
+{
+    var results: String
+    var body: some View{
+        VStack(alignment:.center)
+        {
+            HStack(alignment:.center){
+                //return home button
+                //share button
+                //view other result button
+            }
+            Text("configs: \(results)")
+        }
+    }
+}
+
 struct ResultsView:View
 {
     var results: String
-   
     var body: some View{
         VStack(alignment:.center)
         {
@@ -35,15 +52,22 @@ struct ContentView: View
     let runButtonTitle = "Run Test"
     let logTitle = "Run Log"
     let runTimes = " Time(s)"
+    let createSampleButtonTitle = "Create Sample Config"
     let step = 1
     let numberOfRunsRange = 1...10
 
     @State private var numberOfRuns = 1
     @State private var runLogs = ""
     @State private var insideResultsView = false
-    @State var configDirectory: URL = FileManager.default.temporaryDirectory
+    @State var configDirectory: URL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent("configDirectory")
     @State var showDirectoryPicker = false
     
+    var justShared: some Scene{
+        WindowGroup{
+            ContentView().onOpenURL(perform: {url in
+            })
+        }
+    }
     
     var body: some View
     {
@@ -53,18 +77,53 @@ struct ContentView: View
             {
                 VStack(alignment: .center, spacing: 10) // Config Directory UI
                 {
+                    
                     Text(configTitle)
                     Text(configDirectory.lastPathComponent).padding()
                         .foregroundColor(.gray)
-
-                    Button(action: { self.showDirectoryPicker.toggle() })
-                    {
-                        Text(browseButtonTitle)
-                    }
-                        .sheet(isPresented: self.$showDirectoryPicker)
+                    
+                   //browse for config button
+                    HStack(alignment: .center){
+                        Button(action: { self.showDirectoryPicker.toggle() })
                         {
-                            DirectoryPickerView(directoryURL: $configDirectory)
+                            Text(browseButtonTitle)
                         }
+                            .sheet(isPresented: self.$showDirectoryPicker)
+                            {
+                                DirectoryPickerView(directoryURL: $configDirectory)
+                            }
+                        NavigationLink(destination: configSelectionView( results: "results"))
+                        {
+                            Text("Select Config")
+                        }
+                    }
+                    
+                        
+                    //create sample config button
+                    Button(createSampleButtonTitle)
+                    {
+                        do {
+                            //make URLs
+                            let AppDirectory = getDocumentsDirectory()
+                            let hotConfigDirectory = AppDirectory.appendingPathComponent("configsToUseInTest")
+                            
+                            //check to see if anything at configDirectory exists, if not, make the directory
+                            if !FileManager.default.fileExists(atPath: hotConfigDirectory.absoluteString){
+                                try! FileManager.default.createDirectory(at: hotConfigDirectory, withIntermediateDirectories: true, attributes: nil)
+                            }
+                            //save sample config
+                            let sampleConfigReference = configDirectory.appendingPathComponent("sampleShadowConfig.json")
+                            let sampleConfigContents = ##" {"serverIP":"137.184.77.191","serverPort":5678,{"password":"9caa4132c724f137c67928e9338c72cfe37e0dd28b298d14d5b5981effa038c9","cipherName":"DarkStar","cipherMode":"DarkStar"}}"##
+                            
+                            
+                            try sampleConfigContents.write(to: sampleConfigReference, atomically: true, encoding: .utf8)
+                            let checkWork = try String(contentsOf: sampleConfigReference)
+                            print(checkWork)
+                            }
+                            catch{
+                            print("sampleConfig failed to write")
+                            }
+                 
                 }
                 .padding(10)
                 
@@ -80,42 +139,34 @@ struct ContentView: View
                     }
                         .padding(10)
                     HStack(alignment: .center){
+                        //run test button
                         Button(runButtonTitle)
                         {
                             //Run functionality
                             let canaryController = CanaryController()
+                            //make URLs
+                            let AppDirectory = getDocumentsDirectory()
+                            let hotConfigDirectory = AppDirectory.appendingPathComponent("configsToUseInTest")
                             
-                            do
-                            {
-                                let documentDirectory = try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
-                                let directoryContents = try FileManager.default.contentsOfDirectory(at: documentDirectory, includingPropertiesForKeys: nil)
+                            do {
+                                print("run button pressed")
 
-                                if directoryContents.isEmpty
-                                {
-                                    // TODO: For test purposes only, this is not a valid config.
-                                    let testFileURL = documentDirectory.appendingPathComponent("emptyShadowConfig.json")
-                                    let testFileContents = "{\"password\": \"abc123\", \"cipherName\": \"DarkStar\", \"serverIP\": \"0.0.0.0\", \"port\": 0000}"
-
-                                    try testFileContents.write(to: testFileURL, atomically: true, encoding: .utf8)
-                                }
                                 
-                                canaryController.runCanary(configDirectory: configDirectory, numberOfTimesToRun: numberOfRuns)
-                                }
-                                catch
-                                {
-                                    // print("")
-                                }
+                                canaryController.runCanary(configDirectory: hotConfigDirectory, numberOfTimesToRun: numberOfRuns)
+                                } //do
+
                             NavigationLink(destination: Text("secondView"), isActive: $insideResultsView) {EmptyView()}
                             self.insideResultsView = true
-                        }
+                        }//Button(runButtonTitle)
+                        
                         NavigationLink(destination: ResultsView( results: "results"))
                         {
                             Text("View Results")
                         }
                         .padding(10)
-                    }
-                   
-                }
+                    }//HStack
+                }//VStack
+                    
                 Divider()
                 Spacer()
                 
@@ -134,9 +185,19 @@ struct ContentView: View
                 }
                 .padding()
                 
-            } // Main VStack
-        } // body
-    }//NavigationView
+                } // Inner VStack
+            } // Outer Vstack
+        }//NavigationView
+    }//body
+    
+    func getDocumentsDirectory() -> URL {
+        // find all possible documents directories for this user
+        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+
+        // just send back the first one, which ought to be the only one
+        return paths[0]
+    }
+    
 } // ContentView
 
 struct DirectoryPickerView: UIViewControllerRepresentable
@@ -188,9 +249,8 @@ class DocumentPickerCoordinator: NSObject, UIDocumentPickerDelegate, UINavigatio
         {
             directoryURL = selectedURL
             print("Selected url: \(selectedURL)")
-        }
     }
-
+  }
 }
 
 struct ContentView_Previews: PreviewProvider {
@@ -198,3 +258,4 @@ struct ContentView_Previews: PreviewProvider {
         ContentView(configDirectory: FileManager.default.temporaryDirectory)
     }
 }
+    
