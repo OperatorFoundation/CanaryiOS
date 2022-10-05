@@ -112,8 +112,8 @@ struct ContentView: View
                                 try! FileManager.default.createDirectory(at: hotConfigDirectory, withIntermediateDirectories: true, attributes: nil)
                             }
                             //save sample config
-                            let sampleConfigReference = configDirectory.appendingPathComponent("sampleShadowConfig.json")
-                            let sampleConfigContents = ##" {"serverIP":"137.184.77.191","serverPort":5678,{"password":"9caa4132c724f137c67928e9338c72cfe37e0dd28b298d14d5b5981effa038c9","cipherName":"DarkStar","cipherMode":"DarkStar"}}"##
+                            let sampleConfigReference = hotConfigDirectory.appendingPathComponent("sampleShadowSocksConfig.json")
+                            let sampleConfigContents = ##" {"serverIP":"137.184.77.191","port":5678,"password":"9caa4132c724f137c67928e9338c72cfe37e0dd28b298d14d5b5981effa038c9","cipherName":"DarkStar","cipherMode":"DarkStar"}"##
                             
                             
                             try sampleConfigContents.write(to: sampleConfigReference, atomically: true, encoding: .utf8)
@@ -122,6 +122,7 @@ struct ContentView: View
                             }
                             catch{
                             print("sampleConfig failed to write")
+                            print(error)
                             }
                  
                 }

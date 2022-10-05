@@ -7,32 +7,32 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "FB186FA7-5282-4DAC-A58D-78F41EC15996"
-            shouldBeEnabled = "Yes"
+            uuid = "C8EB485A-EDC1-429B-B5C3-EAC589C8A17B"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ReceiveConfig/ShareViewController.swift"
+            filePath = "../../../../Library/Developer/Xcode/DerivedData/CanaryiOS-arhwedxkuirydnfebdjpktdpzdit/SourcePackages/checkouts/ShadowSwift/Sources/ShadowSwift/ShadowConfig.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "113"
-            endingLineNumber = "113"
-            landmarkName = "ShareViewController"
-            landmarkType = "3">
+            startingLineNumber = "23"
+            endingLineNumber = "23"
+            landmarkName = "init(key:serverIP:port:mode:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "0A948616-3A61-4671-9055-545A6C417831"
-            shouldBeEnabled = "Yes"
+            uuid = "8817AC57-6913-4135-A263-E0F97DB30697"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "ReceiveConfig/ShareViewController.swift"
+            filePath = "../../../../Library/Developer/Xcode/DerivedData/CanaryiOS-arhwedxkuirydnfebdjpktdpzdit/SourcePackages/checkouts/CanaryLibraryiOS/Sources/CanaryLibraryiOS/Models/Transport.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "20"
-            endingLineNumber = "20"
-            landmarkName = "viewDidAppear(_:)"
+            startingLineNumber = "79"
+            endingLineNumber = "79"
+            landmarkName = "init?(name:typeString:configPath:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
