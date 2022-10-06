@@ -9,6 +9,7 @@ import SwiftUI
 import UniformTypeIdentifiers
 
 var configFileName: String = "blank"
+var results = ["1","2"]
 
 struct configSelectionView:View
 {
@@ -26,21 +27,65 @@ struct configSelectionView:View
     }
 }
 
+//struct Result: Identifiable {
+//    let id = UUID()
+//    let name: String
+//}
+
+//struct SingleResult: View {
+//    var result: Result
+//    var body: some View {
+//        Text(result.name)
+//    }
+//}
+
 struct ResultsView:View
 {
     var results: String
+    @State private var resultsList = ["1","1"]
+    
+    
     var body: some View{
+
+//        print("AppDirectory: \n")
+//        print(AppDirectory)
+//        print("resultsDirectory: \n")
+//        print(resultsDirectory)
+//        print("resultsList: \n")
+//        print(resultsList)
         VStack(alignment:.center)
         {
             HStack(alignment:.center){
-                //return home button
                 //share button
                 //view other result button
             }
-            Text("Test Results: \(results)")
+            let resultsList = getResults()
+            ForEach(resultsList, id: \.self){ results in
+                Text(results)
+            }
         }
     }
+    func getResults()-> [String] {
+        let AppDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+        let resultsDirectory = AppDirectory.appendingPathComponent("results")
+        do{
+            let resultsList =  try FileManager.default.contentsOfDirectory(atPath: resultsDirectory.path)
+        }
+        catch{
+            print("failed to get results")
+        }
+    return resultsList
+    }
 }
+
+//            for items in resultsList{
+//                Result(name: String(items))
+//            }
+            
+//            List(resultsList) { singlton in
+//                SingleResult(result: singlton)
+//            }
+
 
 struct ContentView: View
 {
@@ -117,8 +162,8 @@ struct ContentView: View
                             
                             
                             try sampleConfigContents.write(to: sampleConfigReference, atomically: true, encoding: .utf8)
-                            let checkWork = try String(contentsOf: sampleConfigReference)
-                            print(checkWork)
+                            //let checkWork = try String(contentsOf: sampleConfigReference)
+                            //print(checkWork)
                             }
                             catch{
                             print("sampleConfig failed to write")
@@ -143,19 +188,54 @@ struct ContentView: View
                         //run test button
                         Button(runButtonTitle)
                         {
-                            //Run functionality
-                            let canaryController = CanaryController()
-                            //make URLs
-                            let AppDirectory = getDocumentsDirectory()
-                            let hotConfigDirectory = AppDirectory.appendingPathComponent("configsToUseInTest")
-                            
-                            do {
-                                print("run button pressed")
-
-                                
+                            do{
+                                let canaryController = CanaryController()
+                                //make paths
+                                let AppDirectory = getDocumentsDirectory()
+                                let hotConfigDirectory = AppDirectory.appendingPathComponent("configsToUseInTest")
+                                let resultsDirectory = AppDirectory.appendingPathComponent("results")
+                            //check to see if resultsDirectory exists, if not, make one.
+                                if !FileManager.default.fileExists(atPath: resultsDirectory.absoluteString){
+                                    try! FileManager.default.createDirectory(at: resultsDirectory, withIntermediateDirectories: true, attributes: nil)
+                                }
+  
+                            //get current results list
+                                results = try FileManager.default.contentsOfDirectory(atPath: resultsDirectory.path)
+                                //do the test
                                 canaryController.runCanary(configDirectory: hotConfigDirectory, numberOfTimesToRun: numberOfRuns)
-                                } //do
-
+                                //before we leave the screen, save the result with time of use.
+                                //format a name that is unique.
+                                let date = Date()
+                                let dateFormatter = DateFormatter()
+                                dateFormatter.dateFormat = "dd/MM/yy"
+                                let dateComponent: String = dateFormatter.string(from: date)
+                                var mutatingDate: String  = dateComponent
+                                var iteration = 1
+                                var EndComponent: String = "_test_" + String(iteration) + ".csv"
+                                var trialName: String = mutatingDate + EndComponent
+                                var success = false
+                                while( success == false) {
+                                    if !results.contains(trialName){
+                                        //copy and delete the csv in hotConfigDirectory to results
+                                        let source = hotConfigDirectory.appendingPathComponent("results.csv")
+                                        let dest = resultsDirectory.appendingPathComponent(trialName).path
+                                        try  FileManager.default.copyItem(atPath: source.path, toPath: dest)
+                                        if FileManager.default.fileExists(atPath: source.path) {
+                                            try FileManager.default.removeItem(atPath: source.path)
+                                        }
+                                        
+                                        success = true
+                                    } else {
+                                        iteration += 1
+                                        
+                                        trialName = mutatingDate + "_" + String(iteration) + ".csv"
+                                    }
+                                }
+                            }
+                            catch let error as NSError {
+                                print(error)
+                            }
+                                
                             NavigationLink(destination: Text("secondView"), isActive: $insideResultsView) {EmptyView()}
                             self.insideResultsView = true
                         }//Button(runButtonTitle)
