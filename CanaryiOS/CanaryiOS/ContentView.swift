@@ -13,6 +13,7 @@ import TabularData
 var configFileName: String = "blank"
 var results = ["1","2"]
 
+
 struct configSelectionView:View
 {
     var results: String
@@ -24,28 +25,28 @@ struct configSelectionView:View
                 //share button
                 //view other result button
             }
-            Text("configs: \(results)")
+            let configNameList: [ConfigIdentifier] = [ConfigIdentifier(name: "test1"), ConfigIdentifier(name: "test2")]
+            List {
+                ForEach(configNameList) {name in
+                    ConfigCardView(configName: "test")
+                }
+            }
         }
     }
 }
 
-struct ResultLine: Identifiable {
-    var id: UUID
-    var datestamp: String
-    var transportType: String
-    var success: String
-    var serverIP: String
-    
-    init(datestamp: String, transportType: String, success: String, serverIP: String){
-        self.id = UUID()
-        self.datestamp = datestamp
-        self.transportType = transportType
-        self.success = success
-        self.serverIP = serverIP
+struct ConfigCardView: View{
+    let configName: String
+    var body: some View {
+        let buttontext = "test"
+        Button(buttontext){
+            //go to results view
+        }
     }
 }
 
-struct CardView: View {
+
+struct ResultsCardView: View {
     let result: ResultLine
     var body: some View {
         
@@ -67,14 +68,6 @@ struct CardView: View {
     }
 }
 
-struct CardView_Previews: PreviewProvider {
-    static var result = ResultLine(datestamp: "a time", transportType: "not one", success: "Impossible", serverIP: "Not an IP")
-    static var previews: some View {
-        CardView(result: result)
-            .background()
-    }
-}
-
 struct ResultsView:View
 {
     var body: some View{
@@ -90,7 +83,7 @@ struct ResultsView:View
             let results: [ResultLine] = formatResults()
             List {
                 ForEach(results) {result in
-                    CardView(result: result)
+                    ResultsCardView(result: result)
                 }
             }
         }
@@ -129,14 +122,8 @@ struct ResultsView:View
             let trial = ResultLine(datestamp: dateStamp, transportType: transport, success: String(success), serverIP: serverIP)
             results.append(trial)
         }
-        return results
         
-    }
-}
-
-struct ResultsView_Previews: PreviewProvider {
-    static var previews: some View {
-        ResultsView()
+        return results
     }
 }
 
@@ -211,7 +198,7 @@ struct ContentView: View
                             }
                             //save sample config
                             let sampleConfigReference = hotConfigDirectory.appendingPathComponent("sampleShadowSocksConfig.json")
-                            let sampleConfigContents = ##" {"serverIP":"PII","port":PII,"password":"PII","cipherName":"DarkStar","cipherMode":"DarkStar"}"##
+                            let sampleConfigContents = ##" {"serverIP":"137.184.77.191","port":5678,"password":"9caa4132c724f137c67928e9338c72cfe37e0dd28b298d14d5b5981effa038c9","cipherName":"DarkStar","cipherMode":"DarkStar"}"##
 
                             
                             

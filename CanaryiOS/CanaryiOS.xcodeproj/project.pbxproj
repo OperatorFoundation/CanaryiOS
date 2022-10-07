@@ -12,7 +12,6 @@
 		763A2A5C284185D8001B3A32 /* CanaryLibraryiOS in Frameworks */ = {isa = PBXBuildFile; productRef = 763A2A5B284185D8001B3A32 /* CanaryLibraryiOS */; };
 		76555CC82847ED83002140A7 /* CanaryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76555CC72847ED83002140A7 /* CanaryController.swift */; };
 		AEB5050B28525579005E8D85 /* Logging in Frameworks */ = {isa = PBXBuildFile; productRef = AEB5050A28525579005E8D85 /* Logging */; };
-		E110A59628DCE06E002E935D /* ConfigListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E110A59528DCE06E002E935D /* ConfigListView.swift */; };
 		E15FA8A628883FE6002E5E04 /* ConfigData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E15FA8A528883FE6002E5E04 /* ConfigData.swift */; };
 		E15FA8A92889A6D7002E5E04 /* CanaryLibraryiOS in Frameworks */ = {isa = PBXBuildFile; productRef = E15FA8A82889A6D7002E5E04 /* CanaryLibraryiOS */; };
 		E15FA8C5288F082A002E5E04 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E15FA8C4288F082A002E5E04 /* ShareViewController.swift */; };
@@ -22,6 +21,7 @@
 		E19C171E2835826100B29794 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19C171D2835826100B29794 /* ContentView.swift */; };
 		E19C17202835826200B29794 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E19C171F2835826200B29794 /* Assets.xcassets */; };
 		E19C17232835826200B29794 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E19C17222835826200B29794 /* Preview Assets.xcassets */; };
+		E19E256728F0BD7F005D0C22 /* CardViewParts.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19E256628F0BD7F005D0C22 /* CardViewParts.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,7 +53,6 @@
 		7628547D2852A19E0064ACAF /* Globals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Globals.swift; sourceTree = "<group>"; };
 		76555CC72847ED83002140A7 /* CanaryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanaryController.swift; sourceTree = "<group>"; };
 		76555CC92847FC04002140A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		E110A59528DCE06E002E935D /* ConfigListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigListView.swift; sourceTree = "<group>"; };
 		E15FA8A528883FE6002E5E04 /* ConfigData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigData.swift; sourceTree = "<group>"; };
 		E15FA8C2288F082A002E5E04 /* ReceiveConfig.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ReceiveConfig.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		E15FA8C4288F082A002E5E04 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
@@ -64,6 +63,7 @@
 		E19C171D2835826100B29794 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		E19C171F2835826200B29794 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E19C17222835826200B29794 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		E19E256628F0BD7F005D0C22 /* CardViewParts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewParts.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,7 +90,7 @@
 		E110A59428DCE003002E935D /* ListViewController */ = {
 			isa = PBXGroup;
 			children = (
-				E110A59528DCE06E002E935D /* ConfigListView.swift */,
+				E19E256628F0BD7F005D0C22 /* CardViewParts.swift */,
 			);
 			path = ListViewController;
 			sourceTree = "<group>";
@@ -270,8 +270,8 @@
 				76555CC82847ED83002140A7 /* CanaryController.swift in Sources */,
 				E19C171E2835826100B29794 /* ContentView.swift in Sources */,
 				E19C171C2835826100B29794 /* CanaryiOSApp.swift in Sources */,
-				E110A59628DCE06E002E935D /* ConfigListView.swift in Sources */,
 				E15FA8A628883FE6002E5E04 /* ConfigData.swift in Sources */,
+				E19E256728F0BD7F005D0C22 /* CardViewParts.swift in Sources */,
 				7628547E2852A19E0064ACAF /* Globals.swift in Sources */,
 				7628547C2852A16B0064ACAF /* CanaryLogHandler.swift in Sources */,
 			);
