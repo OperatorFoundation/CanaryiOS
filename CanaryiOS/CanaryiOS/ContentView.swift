@@ -198,7 +198,7 @@ struct ContentView: View
                             }
                             //save sample config
                             let sampleConfigReference = hotConfigDirectory.appendingPathComponent("sampleShadowSocksConfig.json")
-                            let sampleConfigContents = ##" {"serverIP":"137.184.77.191","port":5678,"password":"9caa4132c724f137c67928e9338c72cfe37e0dd28b298d14d5b5981effa038c9","cipherName":"DarkStar","cipherMode":"DarkStar"}"##
+                            let sampleConfigContents = ##" {"serverIP":"PII","port":PII,"password":"PII","cipherName":"DarkStar","cipherMode":"DarkStar"}"##
 
                             
                             
