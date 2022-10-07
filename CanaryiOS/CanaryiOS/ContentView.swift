@@ -77,32 +77,25 @@ struct CardView_Previews: PreviewProvider {
 
 struct ResultsView:View
 {
-    //var results: String
-    //@State private var resultsList = ["1","1"]
-    
     var body: some View{
+        let shareResultsButtonText = "Share Results csv"
         VStack(alignment:.center)
         {
             HStack(alignment:.center){
-                //share button
-                //view other result button
+                Spacer()
+                Spacer()
+                Button(shareResultsButtonText){
+                }
             }
-            
-            
             let results: [ResultLine] = formatResults()
-            
             List {
                 ForEach(results) {result in
                     CardView(result: result)
-                       // .listRowBackground(result.theme.mainColor)
-                        
-                    
-                    
-                    
                 }
             }
         }
     }
+    
     func formatResults() -> [ResultLine]{
         //get file location
         var results: [ResultLine] = []
@@ -111,28 +104,29 @@ struct ResultsView:View
         let resultsFile = AppDirectory.appendingPathComponent("CanaryResults.csv")
         //open CSV
         let data = try! DataFrame.init(contentsOfCSVFile: resultsFile)
-        for row in data.rows {
+        for row in data.rows.reversed() {
+            print(row)
             guard let dateStamp = row[row.startIndex] as? String else {
-                print("/n failed to read datestamp from CanaryResults.csv")
+                print("\n failed to read datestamp from CanaryResults.csv")
                 return badResult
              }
             
             guard let serverIP = row[row.startIndex + 1] as? String else {
-                print("/n failed to read IP from CanaryResults.csv")
+                print("\n failed to read IP from CanaryResults.csv")
                 return badResult
             }
             
             guard let transport = row[row.startIndex + 2] as? String else {
-                print("/n failed to read transport from CanaryResults.csv")
+                print("\n failed to read transport from CanaryResults.csv")
                 return badResult
             }
             
-            guard let success = row[row.startIndex + 3] as? String else {
-                print("/n failed to read success from CanaryResults.csv")
+            guard let success = row[row.startIndex + 3] as? Bool else {
+                print("\n failed to read success from CanaryResults.csv")
                 return badResult
             }
-            
-            let trial = ResultLine(datestamp: dateStamp, transportType: transport, success: success, serverIP: serverIP)
+           
+            let trial = ResultLine(datestamp: dateStamp, transportType: transport, success: String(success), serverIP: serverIP)
             results.append(trial)
         }
         return results
@@ -218,6 +212,7 @@ struct ContentView: View
                             //save sample config
                             let sampleConfigReference = hotConfigDirectory.appendingPathComponent("sampleShadowSocksConfig.json")
                             let sampleConfigContents = ##" {"serverIP":"PII","port":PII,"password":"PII","cipherName":"DarkStar","cipherMode":"DarkStar"}"##
+
                             
                             
                             try sampleConfigContents.write(to: sampleConfigReference, atomically: true, encoding: .utf8)
