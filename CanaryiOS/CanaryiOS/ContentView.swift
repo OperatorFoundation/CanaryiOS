@@ -7,6 +7,8 @@
 
 import SwiftUI
 import UniformTypeIdentifiers
+import Foundation
+import TabularData
 
 var configFileName: String = "blank"
 var results = ["1","2"]
@@ -27,65 +29,122 @@ struct configSelectionView:View
     }
 }
 
-//struct Result: Identifiable {
-//    let id = UUID()
-//    let name: String
-//}
+struct ResultLine: Identifiable {
+    var id: UUID
+    var datestamp: String
+    var transportType: String
+    var success: String
+    var serverIP: String
+    
+    init(datestamp: String, transportType: String, success: String, serverIP: String){
+        self.id = UUID()
+        self.datestamp = datestamp
+        self.transportType = transportType
+        self.success = success
+        self.serverIP = serverIP
+    }
+}
 
-//struct SingleResult: View {
-//    var result: Result
-//    var body: some View {
-//        Text(result.name)
-//    }
-//}
+struct CardView: View {
+    let result: ResultLine
+    var body: some View {
+        
+        HStack{
+            VStack{
+                Text("Test Date")
+                Text(result.datestamp)
+                Text("Server IP")
+                Text(result.serverIP)
+            }
+            Spacer()
+            VStack{
+                Text("Success")
+                Text(result.success)
+                Text("Transport")
+                Text(result.transportType)
+            }
+        }
+    }
+}
+
+struct CardView_Previews: PreviewProvider {
+    static var result = ResultLine(datestamp: "a time", transportType: "not one", success: "Impossible", serverIP: "Not an IP")
+    static var previews: some View {
+        CardView(result: result)
+            .background()
+    }
+}
 
 struct ResultsView:View
 {
-    var results: String
-    @State private var resultsList = ["1","1"]
-    
+    //var results: String
+    //@State private var resultsList = ["1","1"]
     
     var body: some View{
-
-//        print("AppDirectory: \n")
-//        print(AppDirectory)
-//        print("resultsDirectory: \n")
-//        print(resultsDirectory)
-//        print("resultsList: \n")
-//        print(resultsList)
         VStack(alignment:.center)
         {
             HStack(alignment:.center){
                 //share button
                 //view other result button
             }
-            let resultsList = getResults()
-            ForEach(resultsList, id: \.self){ results in
-                Text(results)
+            
+            
+            let results: [ResultLine] = formatResults()
+            
+            List {
+                ForEach(results) {result in
+                    CardView(result: result)
+                       // .listRowBackground(result.theme.mainColor)
+                        
+                    
+                    
+                    
+                }
             }
         }
     }
-    func getResults()-> [String] {
+    func formatResults() -> [ResultLine]{
+        //get file location
+        var results: [ResultLine] = []
+        let badResult = [ResultLine(datestamp: "a time", transportType: "not one", success: "Impossible", serverIP: "Not an IP"), ResultLine(datestamp: "a time", transportType: "not one", success: "Impossible", serverIP: "Not an IP")]
         let AppDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-        let resultsDirectory = AppDirectory.appendingPathComponent("results")
-        do{
-            let resultsList =  try FileManager.default.contentsOfDirectory(atPath: resultsDirectory.path)
+        let resultsFile = AppDirectory.appendingPathComponent("CanaryResults.csv")
+        //open CSV
+        let data = try! DataFrame.init(contentsOfCSVFile: resultsFile)
+        for row in data.rows {
+            guard let dateStamp = row[row.startIndex] as? String else {
+                print("/n failed to read datestamp from CanaryResults.csv")
+                return badResult
+             }
+            
+            guard let serverIP = row[row.startIndex + 1] as? String else {
+                print("/n failed to read IP from CanaryResults.csv")
+                return badResult
+            }
+            
+            guard let transport = row[row.startIndex + 2] as? String else {
+                print("/n failed to read transport from CanaryResults.csv")
+                return badResult
+            }
+            
+            guard let success = row[row.startIndex + 3] as? String else {
+                print("/n failed to read success from CanaryResults.csv")
+                return badResult
+            }
+            
+            let trial = ResultLine(datestamp: dateStamp, transportType: transport, success: success, serverIP: serverIP)
+            results.append(trial)
         }
-        catch{
-            print("failed to get results")
-        }
-    return resultsList
+        return results
+        
     }
 }
 
-//            for items in resultsList{
-//                Result(name: String(items))
-//            }
-            
-//            List(resultsList) { singlton in
-//                SingleResult(result: singlton)
-//            }
-
+struct ResultsView_Previews: PreviewProvider {
+    static var previews: some View {
+        ResultsView()
+    }
+}
 
 struct ContentView: View
 {
@@ -158,7 +217,7 @@ struct ContentView: View
                             }
                             //save sample config
                             let sampleConfigReference = hotConfigDirectory.appendingPathComponent("sampleShadowSocksConfig.json")
-                            let sampleConfigContents = ##" {"serverIP":"137.184.77.191","port":5678,"password":"9caa4132c724f137c67928e9338c72cfe37e0dd28b298d14d5b5981effa038c9","cipherName":"DarkStar","cipherMode":"DarkStar"}"##
+                            let sampleConfigContents = ##" {"serverIP":"PII","port":PII,"password":"PII","cipherName":"DarkStar","cipherMode":"DarkStar"}"##
                             
                             
                             try sampleConfigContents.write(to: sampleConfigReference, atomically: true, encoding: .utf8)
@@ -210,7 +269,7 @@ struct ContentView: View
                                 dateFormatter.dateFormat = "dd/MM/yy"
                                 let dateComponent: String = dateFormatter.string(from: date)
                                 var mutatingDate: String  = dateComponent
-                                var iteration = 1
+                                var iteration = 99
                                 var EndComponent: String = "_test_" + String(iteration) + ".csv"
                                 var trialName: String = mutatingDate + EndComponent
                                 var success = false
@@ -240,7 +299,7 @@ struct ContentView: View
                             self.insideResultsView = true
                         }//Button(runButtonTitle)
                         
-                        NavigationLink(destination: ResultsView( results: "results"))
+                        NavigationLink(destination: ResultsView())
                         {
                             Text("View Results")
                         }
