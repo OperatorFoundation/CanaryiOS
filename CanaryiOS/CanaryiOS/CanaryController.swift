@@ -12,11 +12,11 @@ import CanaryLibraryiOS
 
 class CanaryController
 {
-    func runCanary(configDirectory: URL, numberOfTimesToRun: Int)
+    func runCanary(configDirectory: URL, resultsDirectory: URL, numberOfTimesToRun: Int)
     {
-        let configPath = configDirectory.path
+        let savePath = resultsDirectory.path
         let logger = Logger(label: "CanaryLibraryiOSExample")
-        let canary = Canary(configDirectoryURL: configDirectory, savePath: configPath, logger: logger, timesToRun: numberOfTimesToRun)
+        let canary = Canary(configDirectoryURL: configDirectory, savePath: savePath, logger: logger, timesToRun: numberOfTimesToRun)
         canary.runTest()//runAsync: true)
     }
 }

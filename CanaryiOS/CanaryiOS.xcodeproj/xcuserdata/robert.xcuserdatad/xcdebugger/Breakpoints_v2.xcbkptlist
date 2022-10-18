@@ -7,32 +7,64 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "C8EB485A-EDC1-429B-B5C3-EAC589C8A17B"
+            uuid = "E9842589-EB9B-4994-A566-D27ADA0DA593"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../../../../Library/Developer/Xcode/DerivedData/CanaryiOS-arhwedxkuirydnfebdjpktdpzdit/SourcePackages/checkouts/ShadowSwift/Sources/ShadowSwift/ShadowConfig.swift"
+            filePath = "CanaryiOS/ContentView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "23"
-            endingLineNumber = "23"
-            landmarkName = "init(key:serverIP:port:mode:)"
+            startingLineNumber = "247"
+            endingLineNumber = "247"
+            landmarkName = "ContentView"
+            landmarkType = "14">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "32DC2573-0CEE-4333-A37A-927B98CDDFB5"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CanaryiOS/CanaryController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "15"
+            endingLineNumber = "15"
+            landmarkName = "runCanary(configDirectory:resultsDirectory:numberOfTimesToRun:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "8817AC57-6913-4135-A263-E0F97DB30697"
+            uuid = "2DFA7B23-3FAE-42F7-9538-F0B2B6A53ACB"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../../../../Library/Developer/Xcode/DerivedData/CanaryiOS-arhwedxkuirydnfebdjpktdpzdit/SourcePackages/checkouts/CanaryLibraryiOS/Sources/CanaryLibraryiOS/Models/Transport.swift"
+            filePath = "CanaryiOS/CanaryController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "79"
-            endingLineNumber = "79"
-            landmarkName = "init?(name:typeString:configPath:)"
+            startingLineNumber = "20"
+            endingLineNumber = "20"
+            landmarkName = "runCanary(configDirectory:resultsDirectory:numberOfTimesToRun:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0BE7A688-4324-4842-95E0-461877516B1C"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../../../../Library/Developer/Xcode/DerivedData/CanaryiOS-arhwedxkuirydnfebdjpktdpzdit/SourcePackages/checkouts/CanaryLibraryiOS/Sources/CanaryLibraryiOS/CanaryTest.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
+            landmarkName = "begin()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
