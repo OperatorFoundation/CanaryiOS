@@ -132,7 +132,7 @@ struct ContentView: View
     //Display Strings
     let configTitle: String = "Transport config directory:"
     let configSearchPrompt = "Please select the directory where your config files are located."
-    let browseButtonTitle = "Browse"
+    let browseButtonTitle = "Select Config Directory"
     let numberOfRunsPrompt = "How many times do you want to run the test?"
     let runButtonTitle = "Run Test"
     let logTitle = "Run Log"
@@ -140,13 +140,14 @@ struct ContentView: View
     let createSampleButtonTitle = "Create Sample Config"
     let step = 1
     let numberOfRunsRange = 1...10
+    
 
     @State private var numberOfRuns = 1
     @State private var runLogs = ""
     @State private var insideResultsView = false
-    @State var configDirectory: URL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent("configDirectory")
+    @State var appHomeDirectory: URL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+    @State var configDirectory: URL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0].appendingPathComponent("CanaryConfigs")
     @State var showDirectoryPicker = false
-    
     var justShared: some Scene{
         WindowGroup{
             ContentView().onOpenURL(perform: {url in
@@ -171,47 +172,43 @@ struct ContentView: View
                     HStack(alignment: .center){
                         Button(action: { self.showDirectoryPicker.toggle() })
                         {
+                            let _ = self.makeConfigDirectory()
                             Text(browseButtonTitle)
                         }
                             .sheet(isPresented: self.$showDirectoryPicker)
                             {
                                 DirectoryPickerView(directoryURL: $configDirectory)
                             }
-                        NavigationLink(destination: configSelectionView( results: "results"))
-                        {
-                            Text("Select Config")
-                        }
                     }
                     
-                        
                     //create sample config button
-                    Button(createSampleButtonTitle)
-                    {
-                        do {
-                            //make URLs
-                            let AppDirectory = getDocumentsDirectory()
-                            let hotConfigDirectory = AppDirectory.appendingPathComponent("configsToUseInTest")
-                            
-                            //check to see if anything at configDirectory exists, if not, make the directory
-                            if !FileManager.default.fileExists(atPath: hotConfigDirectory.absoluteString){
-                                try! FileManager.default.createDirectory(at: hotConfigDirectory, withIntermediateDirectories: true, attributes: nil)
-                            }
-                            //save sample config
-                            let sampleConfigReference = hotConfigDirectory.appendingPathComponent("sampleShadowSocksConfig.json")
-                            let sampleConfigContents = ##" {"serverIP":"PII","port":PII,"password":"PII","cipherName":"DarkStar","cipherMode":"DarkStar"}"##
-
-                            
-                            
-                            try sampleConfigContents.write(to: sampleConfigReference, atomically: true, encoding: .utf8)
-                            //let checkWork = try String(contentsOf: sampleConfigReference)
-                            //print(checkWork)
-                            }
-                            catch{
-                            print("sampleConfig failed to write")
-                            print(error)
-                            }
-                 
-                }
+//                   Button(createSampleButtonTitle)
+//                    {
+//                        do {
+//                            //make URLs
+//                            let AppDirectory = getDocumentsDirectory()
+//                            let hotConfigDirectory = AppDirectory.appendingPathComponent("configsToUseInTest")
+//
+//                            //check to see if anything at configDirectory exists, if not, make the directory
+//                            if !FileManager.default.fileExists(atPath: hotConfigDirectory.absoluteString){
+//                                try! FileManager.default.createDirectory(at: hotConfigDirectory, withIntermediateDirectories: true, attributes: nil)
+//                            }
+//                            //save sample config
+//                            let sampleConfigReference = hotConfigDirectory.appendingPathComponent("sampleShadowSocksConfig.json")
+//                            let sampleConfigContents = ##" {"serverIP":"PII","port":PII,"password":"PII","cipherName":"DarkStar","cipherMode":"DarkStar"}"##
+//
+//
+//
+//                            try sampleConfigContents.write(to: sampleConfigReference, atomically: true, encoding: .utf8)
+//                            //let checkWork = try String(contentsOf: sampleConfigReference)
+//                            //print(checkWork)
+//                            }
+//                            catch{
+//                            print("sampleConfig failed to write")
+//                            print(error)
+//                            }
+//
+//                }
                 .padding(10)
                 
                 Divider()
@@ -233,7 +230,6 @@ struct ContentView: View
                                 let canaryController = CanaryController()
                                 //make paths
                                 let AppDirectory = getDocumentsDirectory()
-                                let hotConfigDirectory = AppDirectory.appendingPathComponent("configsToUseInTest")
                                 let resultsDirectory = AppDirectory.appendingPathComponent("results")
                             //check to see if resultsDirectory exists, if not, make one.
                                 if !FileManager.default.fileExists(atPath: resultsDirectory.absoluteString){
@@ -243,7 +239,8 @@ struct ContentView: View
                             //get current results list
                                 results = try FileManager.default.contentsOfDirectory(atPath: resultsDirectory.path)
                                 //do the test
-                                canaryController.runCanary(configDirectory: hotConfigDirectory, numberOfTimesToRun: numberOfRuns)
+                                print("run button pressed")
+                                canaryController.runCanary(configDirectory: configDirectory, numberOfTimesToRun: numberOfRuns)
                                 //before we leave the screen, save the result with time of use.
                                 //format a name that is unique.
                                 let date = Date()
@@ -258,7 +255,7 @@ struct ContentView: View
                                 while( success == false) {
                                     if !results.contains(trialName){
                                         //copy and delete the csv in hotConfigDirectory to results
-                                        let source = hotConfigDirectory.appendingPathComponent("results.csv")
+                                        let source = appHomeDirectory.appendingPathComponent("results.csv")
                                         let dest = resultsDirectory.appendingPathComponent(trialName).path
                                         try  FileManager.default.copyItem(atPath: source.path, toPath: dest)
                                         if FileManager.default.fileExists(atPath: source.path) {
@@ -320,6 +317,15 @@ struct ContentView: View
         return paths[0]
     }
     
+    func makeConfigDirectory(){
+        do{
+            let AppDirectory = getDocumentsDirectory()
+            let hotConfigDirectory = AppDirectory.appendingPathComponent("CanaryConfigs")
+            if !FileManager.default.fileExists(atPath: hotConfigDirectory.absoluteString){
+                                            try! FileManager.default.createDirectory(at: hotConfigDirectory, withIntermediateDirectories: true, attributes: nil)
+            }
+        }
+    }
 } // ContentView
 
 struct DirectoryPickerView: UIViewControllerRepresentable
