@@ -235,45 +235,36 @@ struct ContentView: View
                                 if !FileManager.default.fileExists(atPath: resultsDirectory.absoluteString){
                                     try! FileManager.default.createDirectory(at: resultsDirectory, withIntermediateDirectories: true, attributes: nil)
                                 }
-  
-                            //get current results list
-                                results = try FileManager.default.contentsOfDirectory(atPath: resultsDirectory.path)
-                                //do the test
-                                print("run button pressed")
-                                canaryController.runCanary(configDirectory: configDirectory, numberOfTimesToRun: numberOfRuns)
-                                //before we leave the screen, save the result with time of use.
-                                //format a name that is unique.
-                                let date = Date()
-                                let dateFormatter = DateFormatter()
-                                dateFormatter.dateFormat = "dd/MM/yy"
-                                let dateComponent: String = dateFormatter.string(from: date)
-                                var mutatingDate: String  = dateComponent
-                                var iteration = 99
-                                var EndComponent: String = "_test_" + String(iteration) + ".csv"
-                                var trialName: String = mutatingDate + EndComponent
-                                var success = false
-                                while( success == false) {
-                                    if !results.contains(trialName){
-                                        //copy and delete the csv in hotConfigDirectory to results
-                                        let source = appHomeDirectory.appendingPathComponent("results.csv")
-                                        let dest = resultsDirectory.appendingPathComponent(trialName).path
-                                        try  FileManager.default.copyItem(atPath: source.path, toPath: dest)
-                                        if FileManager.default.fileExists(atPath: source.path) {
-                                            try FileManager.default.removeItem(atPath: source.path)
-                                        }
-                                        
-                                        success = true
-                                    } else {
-                                        iteration += 1
-                                        
-                                        trialName = mutatingDate + "_" + String(iteration) + ".csv"
-                                    }
+                                //get today's date for the name of the results document
+                                let dateComponent = getDate()
+                                let resultsFileName = dateComponent+"_Results.csv"
+                                let resultsFile = resultsDirectory.appendingPathComponent(resultsFileName)
+                                if !FileManager.default.fileExists(atPath: resultsFile.path){
+                                    try! FileManager.default.createFile(atPath: resultsFile.path, contents: nil, attributes: nil)
                                 }
-                            }
-                            catch let error as NSError {
-                                print(error)
-                            }
+
+                                print("run button pressed")
+                                canaryController.runCanary(configDirectory: configDirectory, resultsDirectory: resultsFile,  numberOfTimesToRun: numberOfRuns)
                                 
+//                                while( success == false) {
+//                                    if !results.contains(trialName){
+//                                        //copy and delete the csv in hotConfigDirectory to results
+//                                        let source = appHomeDirectory.appendingPathComponent("results.csv")
+//                                        let dest = resultsDirectory.appendingPathComponent(trialName).path
+//                                        try  FileManager.default.copyItem(atPath: source.path, toPath: dest)
+//                                        if FileManager.default.fileExists(atPath: source.path) {
+//                                            try FileManager.default.removeItem(atPath: source.path)
+//                                        }
+//
+//                                        success = true
+//                                    } else {
+//                                        iteration += 1
+//
+//                                        trialName = mutatingDate + "_" + String(iteration) + ".csv"
+//                                    }
+//                                }
+                            }
+
                             NavigationLink(destination: Text("secondView"), isActive: $insideResultsView) {EmptyView()}
                             self.insideResultsView = true
                         }//Button(runButtonTitle)
@@ -315,6 +306,15 @@ struct ContentView: View
 
         // just send back the first one, which ought to be the only one
         return paths[0]
+    }
+    
+    func getDate() ->String{
+        let date = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd/MM/yy"
+        let dateString = dateFormatter.string(from: date)
+        let formattedDate = dateString.replacingOccurrences(of: "/", with: "-", options: .literal, range: nil)
+        return  formattedDate
     }
     
     func makeConfigDirectory(){
