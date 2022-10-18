@@ -67,43 +67,106 @@ struct ResultsCardView: View {
     }
 }
 
-// Combination of tutorial and OG code:
-//struct Results: Identifiable {
+ //Combination of tutorial and OG code:
+struct Results: Identifiable {
+    let id: Int
+    let dateStamp: String
+    let serverIP: String
+    let transport: String
+    //let success: String
+
+    init?(csv: String) {
+        let fields = csv.components(separatedBy: ",")
+        guard fields.count == 4 else { return nil }
+
+        self.id = Int(fields[0]) ?? 0
+        self.dateStamp = fields[1]
+        self.serverIP = fields[2]
+        self.transport = fields[3]
+        //self.success = fields[3]
+    }
+}
+
+struct ResultsView:View {
+    @State private var results = [Results]()    // Stores the array of results
+    var body: some View {
+        List(results) { results in
+            VStack(alignment: .leading) {
+                Text("\(results.dateStamp) \(results.serverIP)")
+                    .font(.headline)
+                Text("\(results.transport)")        // TODO: add \(results.success)/
+            }
+        }
+        .task {
+            do {
+                    let date = getDate()
+                    let fileName = "CanaryResults" + date + ".csv"
+                    let appHomeDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+                    let resultsDirectory = appHomeDirectory.appendingPathComponent("results")
+                    let resultsFile = resultsDirectory.appendingPathComponent(fileName)
+                    let url = URL(string: resultsFile.absoluteString)!
+                    let resultsData = url.lines.compactMap(Results.init)
+
+                    for try await result in resultsData {
+                        results.append(result)
+                    }
+            } catch {
+                // Stop adding user when an error is thrown
+            }
+        }
+    }
+    func getDate() ->String{
+        let date = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy/MM/dd"
+        let dateString = dateFormatter.string(from: date)
+        let formattedDate = dateString.replacingOccurrences(of: "/", with: "_", options: .literal, range: nil)
+        return  formattedDate
+    }
+}
+
+//// SWIFT Tutorial code:
+//struct User: Identifiable {
 //    let id: Int
-//    let dateStamp: String
-//    let serverIP: String
-//    let transport: String
-//    //let success: String
+//    let firstName: String
+//    let lastName: String
+//    let country: String
 //
 //    init?(csv: String) {
 //        let fields = csv.components(separatedBy: ",")
 //        guard fields.count == 4 else { return nil }
 //
 //        self.id = Int(fields[0]) ?? 0
-//        self.dateStamp = fields[1]
-//        self.serverIP = fields[2]
-//        self.transport = fields[3]
-//        //self.success = fields[3]
+//        self.firstName = fields[1]
+//        self.lastName = fields[2]
+//        self.country = fields[3]
 //    }
 //}
+//// SWIFT Tutorial code:
+//struct ResultsView: View {
+//    @State private var users = [User]()
 //
-//struct ResultsView:View {
-//    @State private var results = [Results]()    // Stores the array of results
 //    var body: some View {
-//        List(results) { results in
+//        List(users) { user in
 //            VStack(alignment: .leading) {
-//                Text("\(results.dateStamp) \(results.serverIP)")
+//                Text("\(user.firstName) \(user.lastName)")
 //                    .font(.headline)
-//                Text("\(results.transport)")        // TODO: add \(results.success)/
+//
+//                Text(user.country)
 //            }
 //        }
 //        .task {
 //            do {
-//                let url = URL(string: "CanaryResults.csv")!
-//                let resultsData = url.lines.compactMap(Results.init)
+//                let date = getDate()
+//                let fileName = "CanaryResults" + date + ".csv"
+//                let appHomeDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+//                let resultsDirectory = appHomeDirectory.appendingPathComponent("results")
+//                let resultsFile = resultsDirectory.appendingPathComponent(fileName)
+//                let url = URL(string: resultsFile.path)!
+//                let userData = url.lines.compactMap(User.init)
 //
-//                for try await result in resultsData {
-//                    results.append(result)
+//                for try await user in userData {
+//                    users.append(user)
 //                }
 //            } catch {
 //                // Stop adding user when an error is thrown
@@ -111,51 +174,6 @@ struct ResultsCardView: View {
 //        }
 //    }
 //}
-
-// SWIFT Tutorial code:
-struct User: Identifiable {
-    let id: Int
-    let firstName: String
-    let lastName: String
-    let country: String
-
-    init?(csv: String) {
-        let fields = csv.components(separatedBy: ",")
-        guard fields.count == 4 else { return nil }
-
-        self.id = Int(fields[0]) ?? 0
-        self.firstName = fields[1]
-        self.lastName = fields[2]
-        self.country = fields[3]
-    }
-}
-// SWIFT Tutorial code:
-struct ResultsView: View {
-    @State private var users = [User]()
-    
-    var body: some View {
-        List(users) { user in
-            VStack(alignment: .leading) {
-                Text("\(user.firstName) \(user.lastName)")
-                    .font(.headline)
-
-                Text(user.country)
-            }
-        }
-        .task {
-            do {
-                let url = URL(string: "https://hws.dev/users.csv")!
-                let userData = url.lines.compactMap(User.init)
-
-                for try await user in userData {
-                    users.append(user)
-                }
-            } catch {
-                // Stop adding user when an error is thrown
-            }
-        }
-    }
-}
 
 // OG code:
 //struct ResultsView:View
@@ -326,33 +344,12 @@ struct ContentView: View
                                     try! FileManager.default.createDirectory(at: resultsDirectory, withIntermediateDirectories: true, attributes: nil)
                                 }
                                 //get today's date for the name of the results document
-                                let dateComponent = getDate()
-                                let resultsFileName = dateComponent+"_Results.csv"
-                                let resultsFile = resultsDirectory.appendingPathComponent(resultsFileName)
-                                if !FileManager.default.fileExists(atPath: resultsFile.path){
-                                    try! FileManager.default.createFile(atPath: resultsFile.path, contents: nil, attributes: nil)
+                                if !FileManager.default.fileExists(atPath: resultsDirectory.path){
+                                    try! FileManager.default.createFile(atPath: resultsDirectory.path, contents: nil, attributes: nil)
                                 }
 
                                 print("run button pressed")
-                                canaryController.runCanary(configDirectory: configDirectory, resultsDirectory: resultsFile,  numberOfTimesToRun: numberOfRuns)
-                                
-//                                while( success == false) {
-//                                    if !results.contains(trialName){
-//                                        //copy and delete the csv in hotConfigDirectory to results
-//                                        let source = appHomeDirectory.appendingPathComponent("results.csv")
-//                                        let dest = resultsDirectory.appendingPathComponent(trialName).path
-//                                        try  FileManager.default.copyItem(atPath: source.path, toPath: dest)
-//                                        if FileManager.default.fileExists(atPath: source.path) {
-//                                            try FileManager.default.removeItem(atPath: source.path)
-//                                        }
-//
-//                                        success = true
-//                                    } else {
-//                                        iteration += 1
-//
-//                                        trialName = mutatingDate + "_" + String(iteration) + ".csv"
-//                                    }
-//                                }
+                                canaryController.runCanary(configDirectory: configDirectory, resultsDirectory: resultsDirectory,  numberOfTimesToRun: numberOfRuns)
                             }
 
                             NavigationLink(destination: Text("secondView"), isActive: $insideResultsView) {EmptyView()}
@@ -393,18 +390,9 @@ struct ContentView: View
     func getDocumentsDirectory() -> URL {
         // find all possible documents directories for this user
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-
+        
         // just send back the first one, which ought to be the only one
         return paths[0]
-    }
-    
-    func getDate() ->String{
-        let date = Date()
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd/MM/yy"
-        let dateString = dateFormatter.string(from: date)
-        let formattedDate = dateString.replacingOccurrences(of: "/", with: "-", options: .literal, range: nil)
-        return  formattedDate
     }
     
     func makeConfigDirectory(){
