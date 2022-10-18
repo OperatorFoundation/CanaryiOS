@@ -45,7 +45,6 @@ struct ConfigCardView: View{
     }
 }
 
-
 struct ResultsCardView: View {
     let result: ResultLine
     var body: some View {
@@ -68,64 +67,155 @@ struct ResultsCardView: View {
     }
 }
 
-struct ResultsView:View
-{
-    var body: some View{
-        let shareResultsButtonText = "Share Results csv"
-        VStack(alignment:.center)
-        {
-            HStack(alignment:.center){
-                Spacer()
-                Spacer()
-                Button(shareResultsButtonText){
-                }
-            }
-            let results: [ResultLine] = formatResults()
-            List {
-                ForEach(results) {result in
-                    ResultsCardView(result: result)
-                }
-            }
-        }
-    }
-    
-    func formatResults() -> [ResultLine]{
-        //get file location
-        var results: [ResultLine] = []
-        let badResult = [ResultLine(datestamp: "a time", transportType: "not one", success: "Impossible", serverIP: "Not an IP"), ResultLine(datestamp: "a time", transportType: "not one", success: "Impossible", serverIP: "Not an IP")]
-        let AppDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-        let resultsFile = AppDirectory.appendingPathComponent("CanaryResults.csv")
-        //open CSV
-        let data = try! DataFrame.init(contentsOfCSVFile: resultsFile)
-        for row in data.rows.reversed() {
-            print(row)
-            guard let dateStamp = row[row.startIndex] as? String else {
-                print("\n failed to read datestamp from CanaryResults.csv")
-                return badResult
-             }
-            
-            guard let serverIP = row[row.startIndex + 1] as? String else {
-                print("\n failed to read IP from CanaryResults.csv")
-                return badResult
-            }
-            
-            guard let transport = row[row.startIndex + 2] as? String else {
-                print("\n failed to read transport from CanaryResults.csv")
-                return badResult
-            }
-            
-            guard let success = row[row.startIndex + 3] as? Bool else {
-                print("\n failed to read success from CanaryResults.csv")
-                return badResult
-            }
-           
-            let trial = ResultLine(datestamp: dateStamp, transportType: transport, success: String(success), serverIP: serverIP)
-            results.append(trial)
-        }
-        
-        return results
+// Combination of tutorial and OG code:
+//struct Results: Identifiable {
+//    let id: Int
+//    let dateStamp: String
+//    let serverIP: String
+//    let transport: String
+//    //let success: String
+//
+//    init?(csv: String) {
+//        let fields = csv.components(separatedBy: ",")
+//        guard fields.count == 4 else { return nil }
+//
+//        self.id = Int(fields[0]) ?? 0
+//        self.dateStamp = fields[1]
+//        self.serverIP = fields[2]
+//        self.transport = fields[3]
+//        //self.success = fields[3]
+//    }
+//}
+//
+//struct ResultsView:View {
+//    @State private var results = [Results]()    // Stores the array of results
+//    var body: some View {
+//        List(results) { results in
+//            VStack(alignment: .leading) {
+//                Text("\(results.dateStamp) \(results.serverIP)")
+//                    .font(.headline)
+//                Text("\(results.transport)")        // TODO: add \(results.success)/
+//            }
+//        }
+//        .task {
+//            do {
+//                let url = URL(string: "CanaryResults.csv")!
+//                let resultsData = url.lines.compactMap(Results.init)
+//
+//                for try await result in resultsData {
+//                    results.append(result)
+//                }
+//            } catch {
+//                // Stop adding user when an error is thrown
+//            }
+//        }
+//    }
+//}
+
+// SWIFT Tutorial code:
+struct User: Identifiable {
+    let id: Int
+    let firstName: String
+    let lastName: String
+    let country: String
+
+    init?(csv: String) {
+        let fields = csv.components(separatedBy: ",")
+        guard fields.count == 4 else { return nil }
+
+        self.id = Int(fields[0]) ?? 0
+        self.firstName = fields[1]
+        self.lastName = fields[2]
+        self.country = fields[3]
     }
 }
+// SWIFT Tutorial code:
+struct ResultsView: View {
+    @State private var users = [User]()
+    
+    var body: some View {
+        List(users) { user in
+            VStack(alignment: .leading) {
+                Text("\(user.firstName) \(user.lastName)")
+                    .font(.headline)
+
+                Text(user.country)
+            }
+        }
+        .task {
+            do {
+                let url = URL(string: "https://hws.dev/users.csv")!
+                let userData = url.lines.compactMap(User.init)
+
+                for try await user in userData {
+                    users.append(user)
+                }
+            } catch {
+                // Stop adding user when an error is thrown
+            }
+        }
+    }
+}
+
+// OG code:
+//struct ResultsView:View
+//{
+//    var body: some View{
+//        let shareResultsButtonText = "Share Results csv"
+//        VStack(alignment:.center)
+//        {
+//            HStack(alignment:.center){
+//                Spacer()
+//                Spacer()
+//                Button(shareResultsButtonText){
+//                }
+//            }
+//            let results: [ResultLine] = formatResults()
+//            List {
+//                ForEach(results) {result in
+//                    ResultsCardView(result: result)
+//                }
+//            }
+//        }
+//    }
+//
+//    func formatResults() -> [ResultLine]{
+//        //get file location
+//        var results: [ResultLine] = []
+//        let badResult = [ResultLine(datestamp: "a time", transportType: "not one", success: "Impossible", serverIP: "Not an IP"), ResultLine(datestamp: "a time", transportType: "not one", success: "Impossible", serverIP: "Not an IP")]
+//        let AppDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+//        let resultsFile = AppDirectory.appendingPathComponent("CanaryResults.csv")
+//        //open CSV
+//        let data = try! DataFrame.init(contentsOfCSVFile: resultsFile)
+//        for row in data.rows.reversed() {
+//            print(row)
+//            guard let dateStamp = row[row.startIndex] as? String else {
+//                print("\n failed to read datestamp from CanaryResults.csv")
+//                return badResult
+//             }
+//
+//            guard let serverIP = row[row.startIndex + 1] as? String else {
+//                print("\n failed to read IP from CanaryResults.csv")
+//                return badResult
+//            }
+//
+//            guard let transport = row[row.startIndex + 2] as? String else {
+//                print("\n failed to read transport from CanaryResults.csv")
+//                return badResult
+//            }
+//
+//            guard let success = row[row.startIndex + 3] as? Bool else {
+//                print("\n failed to read success from CanaryResults.csv")
+//                return badResult
+//            }
+//
+//            let trial = ResultLine(datestamp: dateStamp, transportType: transport, success: String(success), serverIP: serverIP)
+//            results.append(trial)
+//        }
+//
+//        return results
+//    }
+//}
 
 struct ContentView: View
 {
