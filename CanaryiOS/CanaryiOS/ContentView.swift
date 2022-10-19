@@ -10,41 +10,43 @@ import UniformTypeIdentifiers
 import Foundation
 import TabularData
 
-struct configSelectionView:View
-{
-    var results: String
-    var body: some View{
-        VStack(alignment:.center)
-        {
-            HStack(alignment:.center){
-                //return home button
-                //share button
-                //view other result button
-            }
-            let configNameList: [ConfigIdentifier] = [ConfigIdentifier(name: "test1"), ConfigIdentifier(name: "test2")]
-            List {
-                ForEach(configNameList) {name in
-                    ConfigCardView(configName: "test")
-                }
-            }
-        }
-    }
-}
 
-struct ConfigCardView: View{
-    let configName: String
-    var body: some View {
-        let buttontext = "test"
-        Button(buttontext){
-            //go to results view
-        }
-    }
-}
+//wip for multi-select of configs.
+//struct configSelectionView:View
+//{
+//    var results: String
+//    var body: some View{
+//        VStack(alignment:.center)
+//        {
+//            HStack(alignment:.center){
+//                //return home button
+//                //share button
+//                //view other result button
+//            }
+//            let configNameList: [ConfigIdentifier] = [ConfigIdentifier(name: "test1"), ConfigIdentifier(name: "test2")]
+//            List {
+//                ForEach(configNameList) {name in
+//                    ConfigCardView(configName: "test")
+//                }
+//            }
+//        }
+//    }
+//}
+
+//wip for multi-select of Configs
+//struct ConfigCardView: View{
+//    let configName: String
+//    var body: some View {
+//        let buttontext = "test"
+//        Button(buttontext){
+//            //go to results view
+//        }
+//    }
+//}
 
 struct ResultsCardView: View {
     let result: ResultLine
     var body: some View {
-        
         HStack{
             VStack{
                 Text("Test Date")
@@ -64,6 +66,7 @@ struct SelectAnotherDayView:View{
                     let removeCSV = result.replacingOccurrences(of: ".csv", with: "")
                     resultDate = removeCSV.replacingOccurrences(of: "CanaryResults", with: "")
                 }
+                .padding()
             }
         }
     }
@@ -80,6 +83,7 @@ struct SelectAnotherDayView:View{
         }
         return []
     }
+    
     func getDate() ->String{
         let date = Date()
         let dateFormatter = DateFormatter()
@@ -89,24 +93,6 @@ struct SelectAnotherDayView:View{
         return  formattedDate
     }
 }
-
-// Share Results Section
-struct ActivityView: UIViewControllerRepresentable {
-    let text: String
-
-    func makeUIViewController(context: UIViewControllerRepresentableContext<ActivityView>) -> UIActivityViewController {
-        return UIActivityViewController(activityItems: [text], applicationActivities: nil)
-    }
-
-    func updateUIViewController(_ uiViewController: UIActivityViewController, context: UIViewControllerRepresentableContext<ActivityView>) {}
-}
-
-
-struct ShareText: Identifiable {
-    let id = UUID()
-    let text: String
-}
-
 
  //Results View
 struct Results: Identifiable {
@@ -119,7 +105,6 @@ struct Results: Identifiable {
     init?(csv: String) {
         let fields = csv.components(separatedBy: ",")
         guard fields.count == 4 else { return nil }
-
         self.id = UUID() //Int(fields[0]) ?? 0
         self.dateStamp = fields[0]
         self.serverIP = fields[1]
@@ -128,30 +113,11 @@ struct Results: Identifiable {
     }
 }
 
-//struct ResultsView: View {
-//    // 3. Share Text State
-//    @State var shareText: URL?
-//
-//    var body: some View {
-//        VStack {
-//            Button("Show Activity View") {
-//                // 4. New Identifiable Share Text
-//                shareText = ShareText(text: "Hola 😀")
-//            }
-//            .padding()
-//        }
-//        // 5. Sheet to display Share Text
-//        .sheet(item: $shareText) { shareText in
-//            ActivityView(text: shareText.text)
-//        }
-//    }
-//}
-
 struct ResultsView:View {
     @State private var results = [Results]()// Stores the array of results
     //@Binding var showSheetView: Bool
     @State private var isShare = false
-    @State var shareText: ShareText?
+    //@State var shareText: ShareText?
     var shareButtonTitle = "Share these Results"
     var AnotherDaysResultsTitle = "Select another Day"
     var body: some View {
@@ -193,9 +159,8 @@ struct ResultsView:View {
                 }
             }
         }
-
-
     }
+    
     @discardableResult
     func share(
         items: [Any],
@@ -270,11 +235,10 @@ struct ContentView: View
             {
                 VStack(alignment: .center, spacing: 10) // Config Directory UI
                 {
-                    
                     Text(configTitle)
                     Text(configDirectory.lastPathComponent).padding()
                         .foregroundColor(.gray)
-                    
+        
                    //browse for config button
                     HStack(alignment: .center){
                         Button(action: { self.showDirectoryPicker.toggle() })
@@ -317,10 +281,8 @@ struct ContentView: View
 //
 //                }
                 .padding(10)
-                
                 Divider()
                 Spacer()
-                
                 VStack(alignment: .center) // Run Tests UI
                 {
                     Text(numberOfRunsPrompt)
@@ -346,12 +308,10 @@ struct ContentView: View
                                 if !FileManager.default.fileExists(atPath: resultsDirectory.path){
                                     try! FileManager.default.createFile(atPath: resultsDirectory.path, contents: nil, attributes: nil)
                                 }
-
                                 print("run button pressed")
                                 viewingResult = "CanaryResults" + getDate() + ".csv"
                                 canaryController.runCanary(configDirectory: configDirectory, resultsDirectory: resultsDirectory,  numberOfTimesToRun: numberOfRuns)
                             }
-                            
                             
                             NavigationLink(destination: Text("secondView"), isActive: $insideResultsView) {EmptyView()}
                             self.insideResultsView = true
