@@ -135,7 +135,7 @@ struct ResultsView:View {
                 }
             }
             Text(viewingResult)
-            List(results) { results in
+            List(results.reversed()) { results in
                 VStack(alignment: .leading) {
                     Text("\(results.dateStamp) \(results.serverIP)")
                         .font(.headline)
@@ -384,12 +384,22 @@ struct ContentView: View
     }
     
     func makeConfigDirectory(){
+        let readMeText = "place configs in this folder and CanaryiOS will read them"
+        let readMeTitle = "ReadMe"
+        
         do{
             let AppDirectory = getDocumentsDirectory()
             let hotConfigDirectory = AppDirectory.appendingPathComponent("CanaryConfigs")
             if !FileManager.default.fileExists(atPath: hotConfigDirectory.absoluteString){
                                             try! FileManager.default.createDirectory(at: hotConfigDirectory, withIntermediateDirectories: true, attributes: nil)
             }
+            
+            let configReadMeURL = hotConfigDirectory.appendingPathComponent(readMeTitle, isDirectory: false)
+            if !FileManager.default.fileExists(atPath: configReadMeURL.path){
+                try! FileManager.default.createFile(atPath: configReadMeURL.path, contents: nil )
+            }
+            
+         
         }
     }
 } // ContentView
