@@ -18,3 +18,7 @@ class RunningLog: ObservableObject
 {
     @Published var logString: String = ""
 }
+
+var configFileName: String = "blank"
+var resultDate = "today"
+var viewingResult = ""

@@ -10,12 +10,6 @@ import UniformTypeIdentifiers
 import Foundation
 import TabularData
 
-var configFileName: String = "blank"
-var resultDate = "today"
-var viewingResult = ""
-//var results = ["1","2"]
-
-
 struct configSelectionView:View
 {
     var results: String
@@ -96,7 +90,25 @@ struct SelectAnotherDayView:View{
     }
 }
 
- //Combination of tutorial and OG code:
+// Share Results Section
+struct ActivityView: UIViewControllerRepresentable {
+    let text: String
+
+    func makeUIViewController(context: UIViewControllerRepresentableContext<ActivityView>) -> UIActivityViewController {
+        return UIActivityViewController(activityItems: [text], applicationActivities: nil)
+    }
+
+    func updateUIViewController(_ uiViewController: UIActivityViewController, context: UIViewControllerRepresentableContext<ActivityView>) {}
+}
+
+
+struct ShareText: Identifiable {
+    let id = UUID()
+    let text: String
+}
+
+
+ //Results View
 struct Results: Identifiable {
     let id: UUID
     let dateStamp: String
@@ -116,18 +128,40 @@ struct Results: Identifiable {
     }
 }
 
+//struct ResultsView: View {
+//    // 3. Share Text State
+//    @State var shareText: URL?
+//
+//    var body: some View {
+//        VStack {
+//            Button("Show Activity View") {
+//                // 4. New Identifiable Share Text
+//                shareText = ShareText(text: "Hola 😀")
+//            }
+//            .padding()
+//        }
+//        // 5. Sheet to display Share Text
+//        .sheet(item: $shareText) { shareText in
+//            ActivityView(text: shareText.text)
+//        }
+//    }
+//}
+
 struct ResultsView:View {
     @State private var results = [Results]()// Stores the array of results
     //@Binding var showSheetView: Bool
     @State private var isShare = false
+    @State var shareText: ShareText?
     var shareButtonTitle = "Share these Results"
     var AnotherDaysResultsTitle = "Select another Day"
     var body: some View {
         VStack{
             HStack{
                 Button(shareButtonTitle){
-                    print("pressed share results")
                     
+                    let resultsToShare = [getResultsURL()]
+                    share(items: resultsToShare)
+                    //print("pressed share results")
                 }
                 NavigationLink(destination: SelectAnotherDayView())
                 {
@@ -147,25 +181,40 @@ struct ResultsView:View {
                     if (resultDate == "today"){
                         resultDate = getDate()
                     }
-                        let fileName = "CanaryResults" + resultDate + ".csv"
-                        let appHomeDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-                        let resultsDirectory = appHomeDirectory.appendingPathComponent("results")
-                        let resultsFile = resultsDirectory.appendingPathComponent(fileName)
-                        let url = URL(string: resultsFile.absoluteString)!
-                        let resultsData = url.lines.compactMap(Results.init)
-                        
-                        results = []
-                        for try await result in resultsData {
-                            results.append(result)
-                        }
+                    let resultsFile = getResultsURL()
+                    let resultsData = resultsFile.lines.compactMap(Results.init)
+
+                    results = []
+                    for try await result in resultsData {
+                        results.append(result)
+                    }
                 } catch {
                     // Stop adding user when an error is thrown
                 }
             }
         }
-        
-   
+
+
     }
+    @discardableResult
+    func share(
+        items: [Any],
+        excludedActivityTypes: [UIActivity.ActivityType]? = nil
+    ) -> Bool {
+        guard let source = UIApplication.shared.windows.last?.rootViewController else {
+            return false
+        }
+        let vc = UIActivityViewController(
+            activityItems: items,
+            applicationActivities: nil
+        )
+        vc.excludedActivityTypes = excludedActivityTypes
+        vc.popoverPresentationController?.sourceView = source.view
+        source.present(vc, animated: true)
+        return true
+    }
+    
+    //function which gets the date in the right format to select today's result
     func getDate() ->String{
         let date = Date()
         let dateFormatter = DateFormatter()
@@ -173,6 +222,15 @@ struct ResultsView:View {
         let dateString = dateFormatter.string(from: date)
         let formattedDate = dateString.replacingOccurrences(of: "/", with: "_", options: .literal, range: nil)
         return  formattedDate
+    }
+    
+    //function which pulls the result of whatever day the global resultDate is pointed at. 
+    func getResultsURL() -> URL{
+        let fileName = "CanaryResults" + resultDate + ".csv"
+        let appHomeDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+        let resultsDirectory = appHomeDirectory.appendingPathComponent("results")
+        let resultsFile = resultsDirectory.appendingPathComponent(fileName)
+        return resultsFile
     }
 }
 
@@ -184,13 +242,13 @@ struct ContentView: View
     let browseButtonTitle = "Select Config Directory"
     let numberOfRunsPrompt = "How many times do you want to run the test?"
     let runButtonTitle = "Run Test"
-    let logTitle = "Run Log"
+    let logTitle = "Run Log test"
     let runTimes = " Time(s)"
     let createSampleButtonTitle = "Create Sample Config"
     let step = 1
     let numberOfRunsRange = 1...10
     
-
+    @ObservedObject var runningLog = globalRunningLog
     @State private var numberOfRuns = 1
     @State private var runLogs = ""
     @State private var insideResultsView = false
@@ -313,6 +371,24 @@ struct ContentView: View
                 VStack(alignment: .center) // Logs UI
                 {
                     Text(logTitle)
+                    
+                    ScrollViewReader // Test Log with automatic scrolling
+                    {
+                        sp in
+                        
+                        ScrollView
+                        {
+                            // TODO: add .textSelection(.enabled) when appropriate to discontinue support of macOS 11 (only available on macOS 12+)
+                            Text(runningLog.logString)
+                                .id(0)
+                                .onChange(of: runningLog.logString)
+                            {
+                                Value in
+                                sp.scrollTo(0, anchor: .bottom)
+                            }
+                        }
+                        .frame(maxHeight: 150)
+                    }
                     ScrollView
                     {
                        VStack
