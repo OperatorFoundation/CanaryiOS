@@ -11,7 +11,9 @@ import Foundation
 import TabularData
 
 var configFileName: String = "blank"
-var results = ["1","2"]
+var resultDate = "today"
+var viewingResult = ""
+//var results = ["1","2"]
 
 
 struct configSelectionView:View
@@ -53,17 +55,44 @@ struct ResultsCardView: View {
             VStack{
                 Text("Test Date")
                 Text(result.datestamp)
-                Text("Server IP")
-                Text(result.serverIP)
-            }
-            Spacer()
-            VStack{
-                Text("Success")
-                Text(result.success)
-                Text("Transport")
-                Text(result.transportType)
             }
         }
+    }
+}
+
+struct SelectAnotherDayView:View{
+    var body: some View{
+        VStack{
+            let resultsNames = getContentsOfResults()
+            ForEach(resultsNames, id: \.self){result in
+                Button(result){
+                    viewingResult = result
+                    let removeCSV = result.replacingOccurrences(of: ".csv", with: "")
+                    resultDate = removeCSV.replacingOccurrences(of: "CanaryResults", with: "")
+                }
+            }
+        }
+    }
+    
+    func getContentsOfResults() -> [String]{
+        let appHomeDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+        let resultsDirectory = appHomeDirectory.appendingPathComponent("results")
+    
+        do{
+            let results = try FileManager.default.contentsOfDirectory(atPath: resultsDirectory.path)
+            return results
+        } catch {
+            print("yikes")
+        }
+        return []
+    }
+    func getDate() ->String{
+        let date = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy/MM/dd"
+        let dateString = dateFormatter.string(from: date)
+        let formattedDate = dateString.replacingOccurrences(of: "/", with: "_", options: .literal, range: nil)
+        return  formattedDate
     }
 }
 
@@ -87,22 +116,6 @@ struct Results: Identifiable {
     }
 }
 
-//struct SharingViewController: UIViewControllerRepresentable {
-//    @Binding var isPresenting: Bool
-//    var content: () -> UIViewController
-//
-//    func makeUIViewController(context: Context) -> UIViewController {
-//        UIViewController()
-//    }
-//
-//    func updateUIViewController(_ uiViewController: UIViewController, context: Context) {
-//        if isPresenting {
-//            uiViewController.present(content(), animated: true, completion: nil)
-//        }
-//    }
-//}
-
-
 struct ResultsView:View {
     @State private var results = [Results]()// Stores the array of results
     //@Binding var showSheetView: Bool
@@ -116,27 +129,32 @@ struct ResultsView:View {
                     print("pressed share results")
                     
                 }
-                Button(AnotherDaysResultsTitle){
-                    print("user wants to view another result")
+                NavigationLink(destination: SelectAnotherDayView())
+                {
+                    Text(AnotherDaysResultsTitle)
                 }
             }
+            Text(viewingResult)
             List(results) { results in
                 VStack(alignment: .leading) {
                     Text("\(results.dateStamp) \(results.serverIP)")
                         .font(.headline)
-                    Text("\(results.transport)\(results.success)")        // TODO: add \(results.success)/
+                    Text("\(results.transport)\(results.success)")
                 }
             }
             .task {
                 do {
-                        let date = getDate()
-                        let fileName = "CanaryResults" + date + ".csv"
+                    if (resultDate == "today"){
+                        resultDate = getDate()
+                    }
+                        let fileName = "CanaryResults" + resultDate + ".csv"
                         let appHomeDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
                         let resultsDirectory = appHomeDirectory.appendingPathComponent("results")
                         let resultsFile = resultsDirectory.appendingPathComponent(fileName)
                         let url = URL(string: resultsFile.absoluteString)!
                         let resultsData = url.lines.compactMap(Results.init)
-
+                        
+                        results = []
                         for try await result in resultsData {
                             results.append(result)
                         }
@@ -272,9 +290,11 @@ struct ContentView: View
                                 }
 
                                 print("run button pressed")
+                                viewingResult = "CanaryResults" + getDate() + ".csv"
                                 canaryController.runCanary(configDirectory: configDirectory, resultsDirectory: resultsDirectory,  numberOfTimesToRun: numberOfRuns)
                             }
-
+                            
+                            
                             NavigationLink(destination: Text("secondView"), isActive: $insideResultsView) {EmptyView()}
                             self.insideResultsView = true
                         }//Button(runButtonTitle)
@@ -309,6 +329,15 @@ struct ContentView: View
             } // Outer Vstack
         }//NavigationView
     }//body
+    
+    func getDate() ->String{
+        let date = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy/MM/dd"
+        let dateString = dateFormatter.string(from: date)
+        let formattedDate = dateString.replacingOccurrences(of: "/", with: "_", options: .literal, range: nil)
+        return  formattedDate
+    }
     
     func getDocumentsDirectory() -> URL {
         // find all possible documents directories for this user
