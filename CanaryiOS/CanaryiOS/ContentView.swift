@@ -44,6 +44,30 @@ import TabularData
 //    }
 //}
 
+struct BlueButton: ButtonStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .padding()
+            .background(.blue)
+            .foregroundColor(.white)
+            .clipShape(Capsule())
+            .scaleEffect(configuration.isPressed ? 0.6 : 0.8)
+            .animation(.easeOut(duration: 0.2), value: configuration.isPressed)
+    }
+}
+
+struct GrowingButton: ButtonStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .padding()
+            .background(.blue)
+            .foregroundColor(.white)
+            .clipShape(Capsule())
+            .scaleEffect(configuration.isPressed ? 1.2 : 1)
+            .animation(.easeOut(duration: 0.2), value: configuration.isPressed)
+    }
+}
+
 struct ResultsCardView: View {
     let result: ResultLine
     var body: some View {
@@ -66,6 +90,7 @@ struct SelectAnotherDayView:View{
                     let removeCSV = result.replacingOccurrences(of: ".csv", with: "")
                     resultDate = removeCSV.replacingOccurrences(of: "CanaryResults", with: "")
                 }
+                .buttonStyle(BlueButton())
                 .padding()
             }
         }
@@ -129,10 +154,14 @@ struct ResultsView:View {
                     share(items: resultsToShare)
                     //print("pressed share results")
                 }
+                .buttonStyle(GrowingButton())
+                
                 NavigationLink(destination: SelectAnotherDayView())
                 {
                     Text(AnotherDaysResultsTitle)
                 }
+                .buttonStyle(BlueButton())
+
             }
             Text(viewingResult)
             List(results.reversed()) { results in
@@ -246,6 +275,7 @@ struct ContentView: View
                             let _ = self.makeConfigDirectory()
                             Text(browseButtonTitle)
                         }
+                            .buttonStyle(BlueButton())
                             .sheet(isPresented: self.$showDirectoryPicker)
                             {
                                 DirectoryPickerView(directoryURL: $configDirectory)
@@ -316,11 +346,13 @@ struct ContentView: View
                             NavigationLink(destination: Text("secondView"), isActive: $insideResultsView) {EmptyView()}
                             self.insideResultsView = true
                         }//Button(runButtonTitle)
+                        .buttonStyle(BlueButton())
                         
                         NavigationLink(destination: ResultsView())
                         {
                             Text("View Results")
                         }
+                        .buttonStyle(BlueButton())
                         .padding(10)
                     }//HStack
                 }//VStack
@@ -396,9 +428,15 @@ struct ContentView: View
             
             let configReadMeURL = hotConfigDirectory.appendingPathComponent(readMeTitle, isDirectory: false)
             if !FileManager.default.fileExists(atPath: configReadMeURL.path){
-                try! FileManager.default.createFile(atPath: configReadMeURL.path, contents: nil )
+                FileManager.default.createFile(atPath: configReadMeURL.path, contents: nil )
             }
-            
+            do{
+                try readMeText.write(to: configReadMeURL, atomically: true, encoding: .utf8)
+                print("refreshed readme")
+            }
+            catch{
+                print("readme bad")
+            }
          
         }
     }
