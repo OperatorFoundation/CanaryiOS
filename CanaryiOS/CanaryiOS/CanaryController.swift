@@ -18,5 +18,7 @@ class CanaryController
         let logger = Logger(label: "CanaryLibraryiOSExample")
         let canary = Canary(configDirectoryURL: configDirectory, savePath: savePath, logger: logger, timesToRun: numberOfTimesToRun)
         canary.runTest()//runAsync: true)
+        print("***********CONFIG DIR**********")
+        print(configDirectory)
     }
 }

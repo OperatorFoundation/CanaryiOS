@@ -22,3 +22,9 @@ class RunningLog: ObservableObject
 var configFileName: String = "blank"
 var resultDate = "today"
 var viewingResult = ""
+
+let resultDirectoryName = "results"
+let resultFileName = "CanaryResults"
+let resultExtension = ".csv"
+
+let configDirectoryName = "CanaryConfigs"
