@@ -57,6 +57,6 @@ struct Results: Identifiable
         self.dateStamp = fields[0]
         self.serverIP = fields[1]
         self.transport = fields[2]
-        self.success = fields[3]
+        self.success = fields[3].trimmingCharacters(in: .whitespaces).lowercased()
     }
 }

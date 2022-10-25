@@ -18,9 +18,9 @@ struct ResultsView:View
         {
             result in
             
-            VStack{
+            VStack(alignment: .leading){
                 Text("Transport Name: \(result.transport)")
-                Text("Test Result: \(result.success)")
+                Text("Test Result: \(result.success == "true" ? "Success" : "Failed")")
                 Text("Server Address: \(result.serverIP)")
                 Text("Test Date: \(result.dateStamp)")
             }
