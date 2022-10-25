@@ -19,7 +19,7 @@ struct ContentView: View
     //Display Strings
     let configDirectoryLabel = "Transport config directory"
     let testCyclesLabel = "Test Cycles"
-    let browseButtonTitle = "Choose Config Directory"
+    let browseButtonTitle = "Choose..."
     let runButtonTitle = "Run Tests"
     let viewResultsButtonTitle = "View Results"
     
@@ -59,13 +59,11 @@ struct ContentView: View
                     }
                 }
                 
-                GroupBox(testCyclesLabel) {
+                GroupBox(testCyclesLabel)
+                {
                     Stepper(numberOfRuns == 1 ? "Run tests 1 time" : "Run tests \(numberOfRuns) times", value: $numberOfRuns, in: numberOfRunsRange, step: 1)
                         .padding(20)
                 }
-                
-
-                
 
                 HStack
                 {

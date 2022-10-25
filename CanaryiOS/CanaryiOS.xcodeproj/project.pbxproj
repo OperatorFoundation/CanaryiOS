@@ -46,9 +46,6 @@
 		AE90E3EB290782C50034B3A6 /* CanaryResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanaryResults.swift; sourceTree = "<group>"; };
 		AE90E3ED290783C70034B3A6 /* DirectoryPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectoryPickerView.swift; sourceTree = "<group>"; };
 		AEB43A2A28FA2C47000C9DCF /* CanaryLibraryiOS */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = CanaryLibraryiOS; path = ../../CanaryLibraryiOS; sourceTree = "<group>"; };
-		E15FA8C4288F082A002E5E04 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
-		E15FA8C7288F082A002E5E04 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
-		E15FA8C9288F082A002E5E04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E19C17182835826100B29794 /* CanaryiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CanaryiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E19C171B2835826100B29794 /* CanaryiOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanaryiOSApp.swift; sourceTree = "<group>"; };
 		E19C171D2835826100B29794 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -89,22 +86,11 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		E15FA8C3288F082A002E5E04 /* ReceiveConfig */ = {
-			isa = PBXGroup;
-			children = (
-				E15FA8C4288F082A002E5E04 /* ShareViewController.swift */,
-				E15FA8C6288F082A002E5E04 /* MainInterface.storyboard */,
-				E15FA8C9288F082A002E5E04 /* Info.plist */,
-			);
-			path = ReceiveConfig;
-			sourceTree = "<group>";
-		};
 		E19C170F2835826100B29794 = {
 			isa = PBXGroup;
 			children = (
 				AEB43A2A28FA2C47000C9DCF /* CanaryLibraryiOS */,
 				E19C171A2835826100B29794 /* CanaryiOS */,
-				E15FA8C3288F082A002E5E04 /* ReceiveConfig */,
 				E19C17192835826100B29794 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -234,17 +220,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		E15FA8C6288F082A002E5E04 /* MainInterface.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E15FA8C7288F082A002E5E04 /* Base */,
-			);
-			name = MainInterface.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		E19C17242835826200B29794 /* Debug */ = {
