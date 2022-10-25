@@ -18,6 +18,3 @@ Currently only [Shadow](https://github.com/OperatorFoundation/ShapeshifterAndroi
 {"serverIP":"127.0.0.1","password":"enterYourClientConfigPassword","cipherName":"DarkStar","port":1234}
 
 -Once configured, Canary iOS allows users to run tests, view results, and share results.
-
-Dependencies:
-https://github.com/marmelroy/FileBrowser
