@@ -78,7 +78,8 @@ struct ContentView: View
                             {
                                 try FileManager.default.createDirectory(at: resultDirectory, withIntermediateDirectories: true, attributes: nil)
                             }
-
+                            
+                            // Run Canary
                             canaryController.runCanary(configDirectory: configDirectory, resultsDirectory: resultDirectory,  numberOfTimesToRun: numberOfRuns)
                         }
                         catch

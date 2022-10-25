@@ -74,8 +74,6 @@ struct ResultListView: View
             }
             else
             {
-                print("Created results data:")
-                print(results)
                 return results
             }
             
