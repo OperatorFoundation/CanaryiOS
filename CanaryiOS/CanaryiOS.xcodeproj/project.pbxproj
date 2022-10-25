@@ -11,28 +11,17 @@
 		7628547E2852A19E0064ACAF /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7628547D2852A19E0064ACAF /* Globals.swift */; };
 		763A2A5C284185D8001B3A32 /* CanaryLibraryiOS in Frameworks */ = {isa = PBXBuildFile; productRef = 763A2A5B284185D8001B3A32 /* CanaryLibraryiOS */; };
 		76555CC82847ED83002140A7 /* CanaryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76555CC72847ED83002140A7 /* CanaryController.swift */; };
+		AE90E3E62907814B0034B3A6 /* ResultListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE90E3E52907814B0034B3A6 /* ResultListView.swift */; };
+		AE90E3E8290781A90034B3A6 /* ResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE90E3E7290781A90034B3A6 /* ResultsView.swift */; };
+		AE90E3EC290782C50034B3A6 /* CanaryResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE90E3EB290782C50034B3A6 /* CanaryResults.swift */; };
+		AE90E3EE290783C70034B3A6 /* DirectoryPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE90E3ED290783C70034B3A6 /* DirectoryPickerView.swift */; };
 		AEB5050B28525579005E8D85 /* Logging in Frameworks */ = {isa = PBXBuildFile; productRef = AEB5050A28525579005E8D85 /* Logging */; };
-		E15FA8A628883FE6002E5E04 /* ConfigData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E15FA8A528883FE6002E5E04 /* ConfigData.swift */; };
 		E15FA8A92889A6D7002E5E04 /* CanaryLibraryiOS in Frameworks */ = {isa = PBXBuildFile; productRef = E15FA8A82889A6D7002E5E04 /* CanaryLibraryiOS */; };
-		E15FA8C5288F082A002E5E04 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E15FA8C4288F082A002E5E04 /* ShareViewController.swift */; };
-		E15FA8C8288F082A002E5E04 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E15FA8C6288F082A002E5E04 /* MainInterface.storyboard */; };
-		E15FA8CC288F082A002E5E04 /* ReceiveConfig.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = E15FA8C2288F082A002E5E04 /* ReceiveConfig.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		E19C171C2835826100B29794 /* CanaryiOSApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19C171B2835826100B29794 /* CanaryiOSApp.swift */; };
 		E19C171E2835826100B29794 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19C171D2835826100B29794 /* ContentView.swift */; };
 		E19C17202835826200B29794 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E19C171F2835826200B29794 /* Assets.xcassets */; };
 		E19C17232835826200B29794 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E19C17222835826200B29794 /* Preview Assets.xcassets */; };
-		E19E256728F0BD7F005D0C22 /* CardViewParts.swift in Sources */ = {isa = PBXBuildFile; fileRef = E19E256628F0BD7F005D0C22 /* CardViewParts.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		E15FA8CA288F082A002E5E04 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E19C17102835826100B29794 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = E15FA8C1288F082A002E5E04;
-			remoteInfo = ReceiveConfig;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		E15FA8A1288748BC002E5E04 /* Embed App Extensions */ = {
@@ -41,7 +30,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				E15FA8CC288F082A002E5E04 /* ReceiveConfig.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -53,8 +41,11 @@
 		7628547D2852A19E0064ACAF /* Globals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Globals.swift; sourceTree = "<group>"; };
 		76555CC72847ED83002140A7 /* CanaryController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanaryController.swift; sourceTree = "<group>"; };
 		76555CC92847FC04002140A7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		E15FA8A528883FE6002E5E04 /* ConfigData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigData.swift; sourceTree = "<group>"; };
-		E15FA8C2288F082A002E5E04 /* ReceiveConfig.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ReceiveConfig.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		AE90E3E52907814B0034B3A6 /* ResultListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultListView.swift; sourceTree = "<group>"; };
+		AE90E3E7290781A90034B3A6 /* ResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsView.swift; sourceTree = "<group>"; };
+		AE90E3EB290782C50034B3A6 /* CanaryResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanaryResults.swift; sourceTree = "<group>"; };
+		AE90E3ED290783C70034B3A6 /* DirectoryPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectoryPickerView.swift; sourceTree = "<group>"; };
+		AEB43A2A28FA2C47000C9DCF /* CanaryLibraryiOS */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = CanaryLibraryiOS; path = ../../CanaryLibraryiOS; sourceTree = "<group>"; };
 		E15FA8C4288F082A002E5E04 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
 		E15FA8C7288F082A002E5E04 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		E15FA8C9288F082A002E5E04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -63,17 +54,9 @@
 		E19C171D2835826100B29794 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		E19C171F2835826200B29794 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E19C17222835826200B29794 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		E19E256628F0BD7F005D0C22 /* CardViewParts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardViewParts.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		E15FA8BF288F082A002E5E04 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		E19C17152835826100B29794 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -87,12 +70,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		E110A59428DCE003002E935D /* ListViewController */ = {
+		AE90E3E92907826B0034B3A6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				E19E256628F0BD7F005D0C22 /* CardViewParts.swift */,
+				E19C171D2835826100B29794 /* ContentView.swift */,
+				AE90E3E52907814B0034B3A6 /* ResultListView.swift */,
+				AE90E3E7290781A90034B3A6 /* ResultsView.swift */,
+				AE90E3ED290783C70034B3A6 /* DirectoryPickerView.swift */,
 			);
-			path = ListViewController;
+			path = Views;
+			sourceTree = "<group>";
+		};
+		AE90E3EA290782B00034B3A6 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				AE90E3EB290782C50034B3A6 /* CanaryResults.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		E15FA8C3288F082A002E5E04 /* ReceiveConfig */ = {
@@ -108,6 +102,7 @@
 		E19C170F2835826100B29794 = {
 			isa = PBXGroup;
 			children = (
+				AEB43A2A28FA2C47000C9DCF /* CanaryLibraryiOS */,
 				E19C171A2835826100B29794 /* CanaryiOS */,
 				E15FA8C3288F082A002E5E04 /* ReceiveConfig */,
 				E19C17192835826100B29794 /* Products */,
@@ -118,7 +113,6 @@
 			isa = PBXGroup;
 			children = (
 				E19C17182835826100B29794 /* CanaryiOS.app */,
-				E15FA8C2288F082A002E5E04 /* ReceiveConfig.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -126,16 +120,15 @@
 		E19C171A2835826100B29794 /* CanaryiOS */ = {
 			isa = PBXGroup;
 			children = (
-				E110A59428DCE003002E935D /* ListViewController */,
+				AE90E3EA290782B00034B3A6 /* Models */,
 				76555CC92847FC04002140A7 /* Info.plist */,
-				E15FA8A528883FE6002E5E04 /* ConfigData.swift */,
 				E19C171B2835826100B29794 /* CanaryiOSApp.swift */,
-				E19C171D2835826100B29794 /* ContentView.swift */,
 				76555CC72847ED83002140A7 /* CanaryController.swift */,
 				7628547B2852A16B0064ACAF /* CanaryLogHandler.swift */,
 				7628547D2852A19E0064ACAF /* Globals.swift */,
 				E19C171F2835826200B29794 /* Assets.xcassets */,
 				E19C17212835826200B29794 /* Preview Content */,
+				AE90E3E92907826B0034B3A6 /* Views */,
 			);
 			path = CanaryiOS;
 			sourceTree = "<group>";
@@ -151,23 +144,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		E15FA8C1288F082A002E5E04 /* ReceiveConfig */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = E15FA8CD288F082A002E5E04 /* Build configuration list for PBXNativeTarget "ReceiveConfig" */;
-			buildPhases = (
-				E15FA8BE288F082A002E5E04 /* Sources */,
-				E15FA8BF288F082A002E5E04 /* Frameworks */,
-				E15FA8C0288F082A002E5E04 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = ReceiveConfig;
-			productName = ReceiveConfig;
-			productReference = E15FA8C2288F082A002E5E04 /* ReceiveConfig.appex */;
-			productType = "com.apple.product-type.app-extension";
-		};
 		E19C17172835826100B29794 /* CanaryiOS */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = E19C17262835826200B29794 /* Build configuration list for PBXNativeTarget "CanaryiOS" */;
@@ -180,7 +156,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				E15FA8CB288F082A002E5E04 /* PBXTargetDependency */,
 			);
 			name = CanaryiOS;
 			packageProductDependencies = (
@@ -202,9 +177,6 @@
 				LastSwiftUpdateCheck = 1340;
 				LastUpgradeCheck = 1340;
 				TargetAttributes = {
-					E15FA8C1288F082A002E5E04 = {
-						CreatedOnToolsVersion = 13.4.1;
-					};
 					E19C17172835826100B29794 = {
 						CreatedOnToolsVersion = 13.4;
 					};
@@ -222,27 +194,17 @@
 			packageReferences = (
 				763A2A5A284185D8001B3A32 /* XCRemoteSwiftPackageReference "CanaryLibraryiOS" */,
 				AEB5050928525579005E8D85 /* XCRemoteSwiftPackageReference "swift-log" */,
-				E15FA8A72889A6D7002E5E04 /* XCRemoteSwiftPackageReference "CanaryLibraryiOS" */,
 			);
 			productRefGroup = E19C17192835826100B29794 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				E19C17172835826100B29794 /* CanaryiOS */,
-				E15FA8C1288F082A002E5E04 /* ReceiveConfig */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		E15FA8C0288F082A002E5E04 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E15FA8C8288F082A002E5E04 /* MainInterface.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		E19C17162835826100B29794 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -255,37 +217,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		E15FA8BE288F082A002E5E04 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				E15FA8C5288F082A002E5E04 /* ShareViewController.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		E19C17142835826100B29794 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				76555CC82847ED83002140A7 /* CanaryController.swift in Sources */,
+				AE90E3E62907814B0034B3A6 /* ResultListView.swift in Sources */,
 				E19C171E2835826100B29794 /* ContentView.swift in Sources */,
 				E19C171C2835826100B29794 /* CanaryiOSApp.swift in Sources */,
-				E15FA8A628883FE6002E5E04 /* ConfigData.swift in Sources */,
-				E19E256728F0BD7F005D0C22 /* CardViewParts.swift in Sources */,
+				AE90E3E8290781A90034B3A6 /* ResultsView.swift in Sources */,
 				7628547E2852A19E0064ACAF /* Globals.swift in Sources */,
+				AE90E3EE290783C70034B3A6 /* DirectoryPickerView.swift in Sources */,
+				AE90E3EC290782C50034B3A6 /* CanaryResults.swift in Sources */,
 				7628547C2852A16B0064ACAF /* CanaryLogHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		E15FA8CB288F082A002E5E04 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = E15FA8C1288F082A002E5E04 /* ReceiveConfig */;
-			targetProxy = E15FA8CA288F082A002E5E04 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		E15FA8C6288F082A002E5E04 /* MainInterface.storyboard */ = {
@@ -299,58 +247,6 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		E15FA8CE288F082A002E5E04 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 67Y4NSLDQ3;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = ReceiveConfig/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = ReceiveConfig;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = org.OperatorFoundation.CanaryiOS.ReceiveConfig;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		E15FA8CF288F082A002E5E04 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 67Y4NSLDQ3;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = ReceiveConfig/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = ReceiveConfig;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = org.OperatorFoundation.CanaryiOS.ReceiveConfig;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
 		E19C17242835826200B29794 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -401,7 +297,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -455,7 +351,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -484,7 +380,6 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -518,7 +413,6 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -536,15 +430,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		E15FA8CD288F082A002E5E04 /* Build configuration list for PBXNativeTarget "ReceiveConfig" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				E15FA8CE288F082A002E5E04 /* Debug */,
-				E15FA8CF288F082A002E5E04 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		E19C17132835826100B29794 /* Build configuration list for PBXProject "CanaryiOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -580,14 +465,6 @@
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 1.0.0;
-			};
-		};
-		E15FA8A72889A6D7002E5E04 /* XCRemoteSwiftPackageReference "CanaryLibraryiOS" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/OperatorFoundation/CanaryLibraryiOS.git";
-			requirement = {
-				branch = main;
-				kind = branch;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
