@@ -24,14 +24,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		E15FA8A1288748BC002E5E04 /* Embed App Extensions */ = {
+		E15FA8A1288748BC002E5E04 /* Embed Foundation Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
 			);
-			name = "Embed App Extensions";
+			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
@@ -137,7 +137,7 @@
 				E19C17142835826100B29794 /* Sources */,
 				E19C17152835826100B29794 /* Frameworks */,
 				E19C17162835826100B29794 /* Resources */,
-				E15FA8A1288748BC002E5E04 /* Embed App Extensions */,
+				E15FA8A1288748BC002E5E04 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
@@ -161,7 +161,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1340;
-				LastUpgradeCheck = 1340;
+				LastUpgradeCheck = 1400;
 				TargetAttributes = {
 					E19C17172835826100B29794 = {
 						CreatedOnToolsVersion = 13.4;

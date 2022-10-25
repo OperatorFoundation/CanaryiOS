@@ -38,6 +38,8 @@ struct ResultDocument: Transferable
     }
 }
 
+
+// MARK: In an actual app you should not use this to display results as the backing library could change the way the results file is formatted in the future which would break this struct and any views using it to display results.
 struct Results: Identifiable
 {
     let id: UUID
