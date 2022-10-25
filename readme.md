@@ -9,12 +9,12 @@ Canary will run a series of transport tests based on the configs that you provid
 Currently only [Shadow](https://github.com/OperatorFoundation/ShapeshifterAndroidKotlin.git) tests are supported. Replicant support is underway, and will be capable of mimicking other transports when it is complete.
 
 ## Generate Shadow config files
--Go to: [ShadowSwift](https://github.com/OperatorFoundation/ShadowSwift.git).
+Go to: [ShadowSwift](https://github.com/OperatorFoundation/ShadowSwift.git).
 
 ## Running Canary
-- Transport configs should include their transport server IP and port, and should include the transport name in the name of the file.
-- Canary client config files must be saved in the file management system of the device. Config files must conform to the following convention:
+Transport configs should include their transport server IP and port, and should include the transport name in the name of the file.
+Canary client config files must be saved in the file management system of the device. Config files must conform to the following convention:
 
-{"serverIP":"127.0.0.1","password":"enterYourClientConfigPassword","cipherName":"DarkStar","port":1234}
+  {"serverIP":"127.0.0.1","password":"enterYourClientConfigPassword","cipherName":"DarkStar","port":1234}
 
--Once configured, Canary iOS allows users to run tests, view results, and share results.
+Once configured, Canary iOS allows users to run tests, view results, and share results.
