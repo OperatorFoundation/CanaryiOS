@@ -16,6 +16,7 @@ Currently only [Shadow](https://github.com/OperatorFoundation/ShapeshifterAndroi
 - Canary client config files must be saved in the file management system of the device. Config files must conform to the following convention:
 
 {"serverIP":"127.0.0.1","password":"enterYourClientConfigPassword","cipherName":"DarkStar","port":1234}
+
 -Once configured, Canary iOS allows users to run tests, view results, and share results.
 
 Dependencies:
