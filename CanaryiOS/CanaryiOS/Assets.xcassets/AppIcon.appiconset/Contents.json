@@ -1,6 +1,7 @@
 {
   "images" : [
     {
+      "filename" : "CanaryIcon40.png",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "20x20"
@@ -68,26 +69,31 @@
       "size" : "40x40"
     },
     {
+      "filename" : "CanaryIcon80.png",
       "idiom" : "ipad",
       "scale" : "2x",
       "size" : "40x40"
     },
     {
+      "filename" : "CanaryIcon76.png",
       "idiom" : "ipad",
       "scale" : "1x",
       "size" : "76x76"
     },
     {
+      "filename" : "CanaryIcon76x2.png",
       "idiom" : "ipad",
       "scale" : "2x",
       "size" : "76x76"
     },
     {
+      "filename" : "CanaryIcon167.png",
       "idiom" : "ipad",
       "scale" : "2x",
       "size" : "83.5x83.5"
     },
     {
+      "filename" : "CanaryIcon1024.png",
       "idiom" : "ios-marketing",
       "scale" : "1x",
       "size" : "1024x1024"
