@@ -14,10 +14,10 @@ class CanaryController
 {
     func runCanary(configDirectory: URL, resultsDirectory: URL, numberOfTimesToRun: Int)
     {
-        let savePath = resultsDirectory.path
         let logger = Logger(label: "CanaryLibraryiOSExample")
-        let canary = Canary(configDirectoryURL: configDirectory, savePath: savePath, logger: logger, timesToRun: numberOfTimesToRun)
+        let canary = Canary(configDirectoryURL: configDirectory, resultsDirectoryURL: resultsDirectory, logger: logger, timesToRun: numberOfTimesToRun)
         canary.runTest()
+        
         print("***********CONFIG DIR**********")
         print(configDirectory)
     }
