@@ -1,5 +1,5 @@
-
-CanaryiOS/.DS_Store
-*.resolved
-CanaryiOS/CanaryiOS.xcodeproj/project.xcworkspace/xcuserdata/
-CanaryiOS/CanaryiOS.xcodeproj/xcuserdata/
+*.xcuserstate
+*xcuserdata/
+*swiftpm/Package.resolved
+.DS_Store
+Package.resolved
