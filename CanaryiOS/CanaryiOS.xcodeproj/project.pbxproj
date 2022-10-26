@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		7628547C2852A16B0064ACAF /* CanaryLogHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7628547B2852A16B0064ACAF /* CanaryLogHandler.swift */; };
 		7628547E2852A19E0064ACAF /* Globals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7628547D2852A19E0064ACAF /* Globals.swift */; };
-		763A2A5C284185D8001B3A32 /* CanaryLibraryiOS in Frameworks */ = {isa = PBXBuildFile; productRef = 763A2A5B284185D8001B3A32 /* CanaryLibraryiOS */; };
 		76555CC82847ED83002140A7 /* CanaryController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76555CC72847ED83002140A7 /* CanaryController.swift */; };
 		AE90E3E62907814B0034B3A6 /* ResultListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE90E3E52907814B0034B3A6 /* ResultListView.swift */; };
 		AE90E3E8290781A90034B3A6 /* ResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE90E3E7290781A90034B3A6 /* ResultsView.swift */; };
@@ -59,7 +58,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				AEB5050B28525579005E8D85 /* Logging in Frameworks */,
-				763A2A5C284185D8001B3A32 /* CanaryLibraryiOS in Frameworks */,
 				E15FA8A92889A6D7002E5E04 /* CanaryLibraryiOS in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -113,8 +111,8 @@
 				7628547B2852A16B0064ACAF /* CanaryLogHandler.swift */,
 				7628547D2852A19E0064ACAF /* Globals.swift */,
 				E19C171F2835826200B29794 /* Assets.xcassets */,
-				E19C17212835826200B29794 /* Preview Content */,
 				AE90E3E92907826B0034B3A6 /* Views */,
+				E19C17212835826200B29794 /* Preview Content */,
 			);
 			path = CanaryiOS;
 			sourceTree = "<group>";
@@ -145,7 +143,6 @@
 			);
 			name = CanaryiOS;
 			packageProductDependencies = (
-				763A2A5B284185D8001B3A32 /* CanaryLibraryiOS */,
 				AEB5050A28525579005E8D85 /* Logging */,
 				E15FA8A82889A6D7002E5E04 /* CanaryLibraryiOS */,
 			);
@@ -445,11 +442,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		763A2A5B284185D8001B3A32 /* CanaryLibraryiOS */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 763A2A5A284185D8001B3A32 /* XCRemoteSwiftPackageReference "CanaryLibraryiOS" */;
-			productName = CanaryLibraryiOS;
-		};
 		AEB5050A28525579005E8D85 /* Logging */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = AEB5050928525579005E8D85 /* XCRemoteSwiftPackageReference "swift-log" */;
